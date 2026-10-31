@@ -1,0 +1,7 @@
+[*] Configuring Avatar2 Granular Memory Space...
+[+] Configured 3 discrete memory ranges:
+  -> internal_flash     [0x08000000 - 0x08080000] Perms: r-x (Size: 512 KB)
+  -> peripheral_mmio    [0x40000000 - 0x40010000] Perms: rw- (Size: 64 KB)
+  -> internal_sram      [0x20000000 - 0x20020000] Perms: rwx (Size: 128 KB)
+[+] Address 0x20004500 resolved to region: 'internal_sram'
+[SUCCESS] Memory mapping verified successfully.

@@ -1,0 +1,12 @@
+[*] Initializing SEGGER J-Link Target Automation...
+[i] SIMULATION MODE: pylink present but the J-Link DLL/probe is unavailable
+[i] The sequence below mirrors the real J-Link SWD automation flow.
+[+] SEGGER J-Link session initialized:
+  Target Device : Nordic Semiconductor nRF52840_xxAA
+  Debug Protocol: SWD (Speed: 4000 kHz)
+[+] Target Core Context:
+  Current PC : 0x00025a40
+  Current SP : 0x2003ff00
+  R0 Marker  : 0x51524632
+[+] High-speed RAM block read (64 bytes): 01020304010203040102030401020304...
+[SUCCESS] J-Link target automation verified.

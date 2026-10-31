@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="621" height="393" viewBox="0 0 621 393" role="img" aria-label="Terminal output of 27_sensor_bus_i2c_spi_simulation">
+  <rect width="621" height="393" rx="10" fill="#0d1117"/>
+  <rect width="621" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">27_sensor_bus_i2c_spi_simulation</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Multi-Drop Sensor Bus Simulation...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] I2C bus at 0x40005400, SPI bus at 0x40003800</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Executing firmware that probes both sensor buses...</text>
+    <text x="18" y="140" fill="#c9d1d9">[I2C] CR1 &lt;- 0x00000001 (enabled=True, PC=0x08000004)</text>
+    <text x="18" y="159" fill="#c9d1d9">[I2C] Command 0xa1 -&gt; sensor returns 26 C</text>
+    <text x="18" y="178" fill="#c9d1d9">[I2C] DR read by firmware: 0x1a</text>
+    <text x="18" y="197" fill="#c9d1d9">[SPI] CR1 &lt;- 0x00000001 (enabled=True, PC=0x08000016)</text>
+    <text x="18" y="216" fill="#c9d1d9">[SPI] Command 0x9f -&gt; JEDEC ID 0xef4017</text>
+    <text x="18" y="235" fill="#c9d1d9">[SPI] DR read by firmware: 0xef4017</text>
+    <text x="18" y="254" fill="#79c0ff">[+] I2C frames : [('READ_TEMP', 26)]</text>
+    <text x="18" y="273" fill="#79c0ff">[+] SPI frames : [('JEDEC_ID', 15679511)]</text>
+    <text x="18" y="292" fill="#79c0ff">[+] Temperature: 26 C (RAM copy: 26)</text>
+    <text x="18" y="311" fill="#79c0ff">[+] Flash ID   : 0xef4017 (RAM copy: 0xef4017)</text>
+    <text x="18" y="330" fill="#79c0ff">[+] MMIO traffic: I2C 2w/2r, SPI 2w/1r</text>
+    <text x="18" y="349" fill="#3fb950">[SUCCESS] I2C/SPI sensor bus simulation verified on real executed firmware.</text>
+    <text x="18" y="368" fill="#7ee787">$</text>
+  </g>
+</svg>

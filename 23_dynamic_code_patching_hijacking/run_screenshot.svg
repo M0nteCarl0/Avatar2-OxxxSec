@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="628" height="279" viewBox="0 0 628 279" role="img" aria-label="Terminal output of 23_dynamic_code_patching_hijacking">
+  <rect width="628" height="279" rx="10" fill="#0d1117"/>
+  <rect width="628" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">23_dynamic_code_patching_hijacking</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Dynamic In-Memory Hot-Patching Suite...</text>
+    <text x="18" y="102" fill="#c9d1d9">[*] Assembled Thumb-2 hot-patch: 'nop; nop' -&gt; 00BF00BF</text>
+    <text x="18" y="121" fill="#f85149">[!] Target at verification check: PC=0x080012a4, R0=0xffffffff [FAIL STATUS]</text>
+    <text x="18" y="140" fill="#c9d1d9">[*] Applying hot-patch at 0x080012a4 to neutralize branch...</text>
+    <text x="18" y="159" fill="#79c0ff">[+] Memory at 0x080012a4 successfully patched with: 00bf00bf</text>
+    <text x="18" y="178" fill="#79c0ff">[+] Signature check successfully bypassed!</text>
+    <text x="18" y="197" fill="#c9d1d9">  New PC : 0x080012a8 (Continued into normal firmware)</text>
+    <text x="18" y="216" fill="#c9d1d9">  New R0 : 0x00000000 [SIGNATURE_VALID]</text>
+    <text x="18" y="235" fill="#3fb950">[SUCCESS] Dynamic binary hot-patching verified.</text>
+    <text x="18" y="254" fill="#7ee787">$</text>
+  </g>
+</svg>

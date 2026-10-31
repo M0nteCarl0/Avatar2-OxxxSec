@@ -1,0 +1,12 @@
+[*] Initializing Virtual UART Telemetry Capture...
+[+] Assembled firmware blob: 766 bytes, banner at 0x08000200
+[+] Avatar2 peripheral model 'pl011_uart' mapped at 0x4000c000
+[*] Streaming firmware serial output through the virtual UART...
+[UART CONSOLE OUT] [*] Bootloader v2.4.1 (Cortex-M3) initializing...
+[UART CONSOLE OUT] [+] CPU clock 72 MHz | SRAM 64 KB | Flash 256 KB
+[UART CONSOLE OUT] [+] Peripheral bus clock initialized: OK
+[UART CONSOLE OUT] [!] Warning: integrity check bypassed in debug build
+[UART CONSOLE OUT] [+] Entered main operational loop. Type 'help' for console.
+[+] Captured 5 complete lines of firmware telemetry.
+[+] Real MMIO transactions observed: 253
+[SUCCESS] Virtual UART telemetry capture verified on real executed firmware.

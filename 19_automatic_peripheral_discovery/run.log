@@ -1,0 +1,24 @@
+[*] Initializing Automated Peripheral Discovery...
+[+] Bus fabric modeled over 0x40000000..0x4001ffff
+[*] Devices attached (unknown to the firmware): {'0x4000c000': 'PL011 UART', '0x40010000': 'Crypto accelerator'}
+[*] Firmware sweeping the bus for live peripherals...
+[BUS] Probe 0x4000c000 -> 0xcafe0002 (HIT: PL011 UART)
+[BUS] Probe 0x4000d000 -> 0x00000000 (no device)
+[BUS] Probe 0x4000e000 -> 0x00000000 (no device)
+[BUS] Probe 0x4000f000 -> 0x00000000 (no device)
+[BUS] Probe 0x40010000 -> 0xcafe0001 (HIT: Crypto accelerator)
+[BUS] Probe 0x40011000 -> 0x00000000 (no device)
+[BUS] Probe 0x40012000 -> 0x00000000 (no device)
+[BUS] Probe 0x40013000 -> 0x00000000 (no device)
+[+] Scan results written by firmware:
+  0x4000c000 : 0xcafe0002  [PL011 UART]
+  0x4000d000 : 0x00000000  [unmapped]
+  0x4000e000 : 0x00000000  [unmapped]
+  0x4000f000 : 0x00000000  [unmapped]
+  0x40010000 : 0xcafe0001  [Crypto accelerator]
+  0x40011000 : 0x00000000  [unmapped]
+  0x40012000 : 0x00000000  [unmapped]
+  0x40013000 : 0x00000000  [unmapped]
+[+] Discovered 2 live peripheral(s) out of 8 slots probed
+[+] Bus probes observed: 8
+[SUCCESS] Peripheral discovery verified against real firmware sweep.

@@ -1,0 +1,9 @@
+[*] Initializing Avatar2 Core Orchestrator...
+[+] Workspace created   : avatar2_ws_i5pfulvw
+[+] Target architecture   : type
+[*] Registering target 'cortex_m3_cpu' (DummyTarget)...
+[+] Target 'cortex_m3_cpu' initialized. Current state: 4
+[+] Registered targets count: 1
+[+] Active memory ranges    : 0
+[*] Performing graceful orchestrator shutdown...
+[SUCCESS] Orchestrator lifecycle completed cleanly.

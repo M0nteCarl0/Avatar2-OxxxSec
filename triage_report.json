@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-31T13:29:58.290200Z",
+    "firmware_file": "sample_triage_firmware.bin",
+    "sha256": "dc93158c855520f17ffebf353b9f086172447998771c08452b35e4183e237643",
+    "file_size": 1054,
+    "architecture": "ARMv7-M (Cortex-M3)"
+  },
+  "memory_map": [
+    {
+      "name": "flash_code",
+      "base": "0x08000000",
+      "size_bytes": 262144,
+      "permissions": "r-x"
+    },
+    {
+      "name": "sram_data",
+      "base": "0x20000000",
+      "size_bytes": 65536,
+      "permissions": "rwx"
+    },
+    {
+      "name": "periph_mmio",
+      "base": "0x40000000",
+      "size_bytes": 131072,
+      "permissions": "rw-"
+    }
+  ],
+  "peripheral_accesses": [
+    {
+      "address": "0x4000c000",
+      "peripheral": "UART0",
+      "operation": "WRITE",
+      "data": "0x41"
+    },
+    {
+      "address": "0x40003000",
+      "peripheral": "WDT",
+      "operation": "WRITE",
+      "data": "0xaaaa"
+    }
+  ],
+  "extracted_iocs": [
+    {
+      "type": "C2_ENDPOINT",
+      "value": "198.51.100.42:8443",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "HARDCODED_KEY",
+      "value": "000102030405060708090a0b0c0d0e0f",
+      "confidence": "CRITICAL"
+    },
+    {
+      "type": "DEFAULT_CREDENTIAL",
+      "value": "admin:supersecret123",
+      "confidence": "HIGH"
+    }
+  ],
+  "risk_assessment": {
+    "threat_score": 85,
+    "critical_findings": [
+      "Hardcoded 128-bit cryptographic key located in plain memory",
+      "Unencrypted C2 command-and-control IP address identified",
+      "Default administrative credentials hardcoded in firmware string table"
+    ]
+  }
+}

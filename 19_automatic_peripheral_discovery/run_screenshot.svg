@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="878" height="583" viewBox="0 0 878 583" role="img" aria-label="Terminal output of 19_automatic_peripheral_discovery">
+  <rect width="878" height="583" rx="10" fill="#0d1117"/>
+  <rect width="878" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">19_automatic_peripheral_discovery</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Automated Peripheral Discovery...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Bus fabric modeled over 0x40000000..0x4001ffff</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Devices attached (unknown to the firmware): {'0x4000c000': 'PL011 UART', '0x40010000': 'Crypto accelerat</text>
+    <text x="18" y="140" fill="#c9d1d9">or'}</text>
+    <text x="18" y="159" fill="#c9d1d9">[*] Firmware sweeping the bus for live peripherals...</text>
+    <text x="18" y="178" fill="#c9d1d9">[BUS] Probe 0x4000c000 -&gt; 0xcafe0002 (HIT: PL011 UART)</text>
+    <text x="18" y="197" fill="#c9d1d9">[BUS] Probe 0x4000d000 -&gt; 0x00000000 (no device)</text>
+    <text x="18" y="216" fill="#c9d1d9">[BUS] Probe 0x4000e000 -&gt; 0x00000000 (no device)</text>
+    <text x="18" y="235" fill="#c9d1d9">[BUS] Probe 0x4000f000 -&gt; 0x00000000 (no device)</text>
+    <text x="18" y="254" fill="#c9d1d9">[BUS] Probe 0x40010000 -&gt; 0xcafe0001 (HIT: Crypto accelerator)</text>
+    <text x="18" y="273" fill="#c9d1d9">[BUS] Probe 0x40011000 -&gt; 0x00000000 (no device)</text>
+    <text x="18" y="292" fill="#c9d1d9">[BUS] Probe 0x40012000 -&gt; 0x00000000 (no device)</text>
+    <text x="18" y="311" fill="#c9d1d9">[BUS] Probe 0x40013000 -&gt; 0x00000000 (no device)</text>
+    <text x="18" y="330" fill="#79c0ff">[+] Scan results written by firmware:</text>
+    <text x="18" y="349" fill="#c9d1d9">  0x4000c000 : 0xcafe0002  [PL011 UART]</text>
+    <text x="18" y="368" fill="#c9d1d9">  0x4000d000 : 0x00000000  [unmapped]</text>
+    <text x="18" y="387" fill="#c9d1d9">  0x4000e000 : 0x00000000  [unmapped]</text>
+    <text x="18" y="406" fill="#c9d1d9">  0x4000f000 : 0x00000000  [unmapped]</text>
+    <text x="18" y="425" fill="#c9d1d9">  0x40010000 : 0xcafe0001  [Crypto accelerator]</text>
+    <text x="18" y="444" fill="#c9d1d9">  0x40011000 : 0x00000000  [unmapped]</text>
+    <text x="18" y="463" fill="#c9d1d9">  0x40012000 : 0x00000000  [unmapped]</text>
+    <text x="18" y="482" fill="#c9d1d9">  0x40013000 : 0x00000000  [unmapped]</text>
+    <text x="18" y="501" fill="#79c0ff">[+] Discovered 2 live peripheral(s) out of 8 slots probed</text>
+    <text x="18" y="520" fill="#79c0ff">[+] Bus probes observed: 8</text>
+    <text x="18" y="539" fill="#3fb950">[SUCCESS] Peripheral discovery verified against real firmware sweep.</text>
+    <text x="18" y="558" fill="#7ee787">$</text>
+  </g>
+</svg>

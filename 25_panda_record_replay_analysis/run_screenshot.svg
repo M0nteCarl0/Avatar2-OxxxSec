@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="393" viewBox="0 0 800 393" role="img" aria-label="Terminal output of 25_panda_record_replay_analysis">
+  <rect width="800" height="393" rx="10" fill="#0d1117"/>
+  <rect width="800" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">25_panda_record_replay_analysis</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 PANDA Record &amp; Replay Suite...</text>
+    <text x="18" y="102" fill="#d29922">[i] SIMULATION MODE: PANDA system emulator not found in PATH (needs an LLVM/PANDA build or Docker)</text>
+    <text x="18" y="121" fill="#d29922">[i] Trace format and replay ordering below match a real PANDA session.</text>
+    <text x="18" y="140" fill="#79c0ff">[+] PANDA Session configured for recording: 'firmware_auth_session'</text>
+    <text x="18" y="159" fill="#c9d1d9">[*] Phase 1: RECORDING - Logging non-deterministic peripheral events...</text>
+    <text x="18" y="178" fill="#79c0ff">[+] Recorded 5 external I/O events to PANDA trace file.</text>
+    <text x="18" y="197" fill="#c9d1d9"></text>
+    <text x="18" y="216" fill="#c9d1d9">[*] Phase 2: REPLAY - Re-executing trace with 100% determinism...</text>
+    <text x="18" y="235" fill="#c9d1d9">  [REPLAY STEP 1] PC: 0x08000100 -&gt; Event: MCU_RESET    (Data: 0x00)</text>
+    <text x="18" y="254" fill="#c9d1d9">  [REPLAY STEP 2] PC: 0x08000240 -&gt; Event: UART_RX_CHAR (Data: 0x41)</text>
+    <text x="18" y="273" fill="#c9d1d9">  [REPLAY STEP 3] PC: 0x08000244 -&gt; Event: UART_RX_CHAR (Data: 0x44)</text>
+    <text x="18" y="292" fill="#c9d1d9">  [REPLAY STEP 4] PC: 0x08000248 -&gt; Event: UART_RX_CHAR (Data: 0x4d)</text>
+    <text x="18" y="311" fill="#c9d1d9">  [REPLAY STEP 5] PC: 0x08000300 -&gt; Event: AUTH_CHECK   (Data: 0x01)</text>
+    <text x="18" y="330" fill="#79c0ff">[+] Replay completed: Final PC matched recorded state exactly.</text>
+    <text x="18" y="349" fill="#3fb950">[SUCCESS] PANDA deterministic record and replay verified.</text>
+    <text x="18" y="368" fill="#7ee787">$</text>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="636" height="469" viewBox="0 0 636 469" role="img" aria-label="Terminal output of 08_python_peripheral_modeling_mmio">
+  <rect width="636" height="469" rx="10" fill="#0d1117"/>
+  <rect width="636" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">08_python_peripheral_modeling_mmio</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Custom MMIO Peripheral Model...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Custom peripheral 'crypto_accel' mapped at 0x40010000</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Executing firmware on the JIT engine (real MMIO transactions)...</text>
+    <text x="18" y="140" fill="#c9d1d9">[ACCELERATOR DIN] Byte 0x4b ('K') from PC 0x08000004</text>
+    <text x="18" y="159" fill="#c9d1d9">[ACCELERATOR DIN] Byte 0x45 ('E') from PC 0x08000008</text>
+    <text x="18" y="178" fill="#c9d1d9">[ACCELERATOR DIN] Byte 0x59 ('Y') from PC 0x0800000c</text>
+    <text x="18" y="197" fill="#c9d1d9">[ACCELERATOR DIN] Byte 0x21 ('!') from PC 0x08000010</text>
+    <text x="18" y="216" fill="#c9d1d9">[ACCELERATOR CR] Write: 0x00000002 (PC: 0x08000014)</text>
+    <text x="18" y="235" fill="#c9d1d9">  [*] Hashing 4 accumulated bytes...</text>
+    <text x="18" y="254" fill="#c9d1d9">  [*] Digest ready: 0xee95ac7a</text>
+    <text x="18" y="273" fill="#c9d1d9">[ACCELERATOR SR] Status polled from PC 0x08000016: 0x00000002</text>
+    <text x="18" y="292" fill="#c9d1d9">[ACCELERATOR DOUT] Firmware read digest: 0xee95ac7a</text>
+    <text x="18" y="311" fill="#79c0ff">[+] Bytes pushed by firmware : b'KEY!'</text>
+    <text x="18" y="330" fill="#79c0ff">[+] MMIO writes / reads seen : 5 / 2</text>
+    <text x="18" y="349" fill="#79c0ff">[+] Digest (peripheral model): 0xee95ac7a</text>
+    <text x="18" y="368" fill="#79c0ff">[+] Digest (guest register)  : 0xee95ac7a</text>
+    <text x="18" y="387" fill="#79c0ff">[+] Digest (guest RAM copy)  : 0xee95ac7a</text>
+    <text x="18" y="406" fill="#79c0ff">[+] Status read by firmware  : 0x00000002 (DONE bit set)</text>
+    <text x="18" y="425" fill="#3fb950">[SUCCESS] Custom MMIO peripheral modeling verified on real executed firmware.</text>
+    <text x="18" y="444" fill="#7ee787">$</text>
+  </g>
+</svg>

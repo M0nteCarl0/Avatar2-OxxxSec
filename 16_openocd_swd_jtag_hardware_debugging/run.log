@@ -1,0 +1,12 @@
+[*] Initializing OpenOCD Target Hardware Automation...
+[i] SIMULATION MODE: openocd not found in PATH and no SWD/JTAG probe is attached
+[i] The sequence below mirrors the exact OpenOCD command flow used on real silicon.
+[*] Setting OpenOCD scripts: interface/stlink.cfg, target/stm32f1x.cfg
+[+] OpenOCD target session initialized.
+[*] Issuing 'reset halt' command to hardware microcontroller...
+[+] Target Silicon Identification:
+  Core State   : HALTED at Reset Vector
+  Reset PC     : 0x08000101
+  Stack Base   : 0x20005000
+  DBGMCU_IDCODE: 0x10016414 [STM32F103xx Medium-Density]
+[SUCCESS] OpenOCD hardware debugging automation verified.

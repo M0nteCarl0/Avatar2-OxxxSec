@@ -1,0 +1,9 @@
+[*] Initializing DummyTarget for Synthetic Unit-Testing...
+[+] DummyTarget 'mock_cortex_m3' initialized in state: 4
+[*] Setting initial CPU register state (ARM Cortex-M reset)...
+[+] Register Context:
+  SP : 0x20010000  LR : 0xffffffff
+  PC : 0x08000101  R0 : 0x20001000 (Buffer: 0x20001000)
+  R1 : 256 bytes
+[+] Function return value (R0): 0 [SUCCESS]
+[SUCCESS] DummyTarget test workflow completed cleanly.

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="683" height="336" viewBox="0 0 683 336" role="img" aria-label="Terminal output of 16_openocd_swd_jtag_hardware_debugging">
+  <rect width="683" height="336" rx="10" fill="#0d1117"/>
+  <rect width="683" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">16_openocd_swd_jtag_hardware_debugging</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing OpenOCD Target Hardware Automation...</text>
+    <text x="18" y="102" fill="#d29922">[i] SIMULATION MODE: openocd not found in PATH and no SWD/JTAG probe is attached</text>
+    <text x="18" y="121" fill="#d29922">[i] The sequence below mirrors the exact OpenOCD command flow used on real silicon.</text>
+    <text x="18" y="140" fill="#c9d1d9">[*] Setting OpenOCD scripts: interface/stlink.cfg, target/stm32f1x.cfg</text>
+    <text x="18" y="159" fill="#79c0ff">[+] OpenOCD target session initialized.</text>
+    <text x="18" y="178" fill="#c9d1d9">[*] Issuing 'reset halt' command to hardware microcontroller...</text>
+    <text x="18" y="197" fill="#79c0ff">[+] Target Silicon Identification:</text>
+    <text x="18" y="216" fill="#c9d1d9">  Core State   : HALTED at Reset Vector</text>
+    <text x="18" y="235" fill="#c9d1d9">  Reset PC     : 0x08000101</text>
+    <text x="18" y="254" fill="#c9d1d9">  Stack Base   : 0x20005000</text>
+    <text x="18" y="273" fill="#c9d1d9">  DBGMCU_IDCODE: 0x10016414 [STM32F103xx Medium-Density]</text>
+    <text x="18" y="292" fill="#3fb950">[SUCCESS] OpenOCD hardware debugging automation verified.</text>
+    <text x="18" y="311" fill="#7ee787">$</text>
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+[*] Initializing Embedded Anti-Debugging Neutralization Harness...
+[+] Stealth CoreDebug block mapped at 0xE000E000.
+[*] Simulating firmware executing 'check_debugger_present()'...
+[ANTI-DEBUG TRAP] PC 0x08000550 read CoreDebug->DHCSR! Spoofing C_DEBUGEN = 0 (Debugger Hidden)
+[+] Firmware received DHCSR: 0x00000000 (C_DEBUGEN bit is 0)
+[+] Anti-debug check bypassed: Firmware concluded 'NO DEBUGGER CONNECTED'!
+[*] Simulating firmware checking DWT execution cycle delta...
+[ANTI-DEBUG TIMING] PC 0x08000560 read DWT_CYCCNT! Returning spoofed cycles: 1005
+[ANTI-DEBUG TIMING] PC 0x08000568 read DWT_CYCCNT! Returning spoofed cycles: 1010
+[+] Measured cycle delta: 5 cycles (Normal execution speed, no stepping detected)
+[SUCCESS] Anti-debugging detection and neutralization verified.

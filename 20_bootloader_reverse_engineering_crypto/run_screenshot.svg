@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="636" height="488" viewBox="0 0 636 488" role="img" aria-label="Terminal output of 20_bootloader_reverse_engineering_crypto">
+  <rect width="636" height="488" rx="10" fill="#0d1117"/>
+  <rect width="636" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">20_bootloader_reverse_engineering_crypto</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Bootloader Hardware Crypto Interception...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Hardware AES Accelerator mapped at 0x50060000.</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Simulating bootloader programming AES-256 Key Registers...</text>
+    <text x="18" y="140" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x10 (KEYR0) = 0x03020100 (From PC: 0x08000340)</text>
+    <text x="18" y="159" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x14 (KEYR1) = 0x07060504 (From PC: 0x08000340)</text>
+    <text x="18" y="178" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x18 (KEYR2) = 0x0b0a0908 (From PC: 0x08000340)</text>
+    <text x="18" y="197" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x1c (KEYR3) = 0x0f0e0d0c (From PC: 0x08000340)</text>
+    <text x="18" y="216" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x20 (KEYR4) = 0x13121110 (From PC: 0x08000340)</text>
+    <text x="18" y="235" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x24 (KEYR5) = 0x17161514 (From PC: 0x08000340)</text>
+    <text x="18" y="254" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x28 (KEYR6) = 0x1b1a1918 (From PC: 0x08000340)</text>
+    <text x="18" y="273" fill="#c9d1d9">[AES KEY WRITE] Offset: 0x2c (KEYR7) = 0x1f1e1d1c (From PC: 0x08000340)</text>
+    <text x="18" y="292" fill="#c9d1d9"></text>
+    <text x="18" y="311" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="330" fill="#c9d1d9">  CRACKED AES-256 FIRMWARE ENCRYPTION KEY</text>
+    <text x="18" y="349" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="368" fill="#c9d1d9">Hex String : 000102030405060708090A0B0C0D0E0F101112131415161718191A1B1C1D1E1F</text>
+    <text x="18" y="387" fill="#c9d1d9">Key Length : 256 bits (32 bytes)</text>
+    <text x="18" y="406" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="425" fill="#79c0ff">[+] Key integrity verification: 100% MATCH with expected bootloader key!</text>
+    <text x="18" y="444" fill="#3fb950">[SUCCESS] Hardware cryptographic key extraction verified.</text>
+    <text x="18" y="463" fill="#7ee787">$</text>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+[*] Initializing Multi-Drop Sensor Bus Simulation...
+[+] I2C bus at 0x40005400, SPI bus at 0x40003800
+[*] Executing firmware that probes both sensor buses...
+[I2C] CR1 <- 0x00000001 (enabled=True, PC=0x08000004)
+[I2C] Command 0xa1 -> sensor returns 26 C
+[I2C] DR read by firmware: 0x1a
+[SPI] CR1 <- 0x00000001 (enabled=True, PC=0x08000016)
+[SPI] Command 0x9f -> JEDEC ID 0xef4017
+[SPI] DR read by firmware: 0xef4017
+[+] I2C frames : [('READ_TEMP', 26)]
+[+] SPI frames : [('JEDEC_ID', 15679511)]
+[+] Temperature: 26 C (RAM copy: 26)
+[+] Flash ID   : 0xef4017 (RAM copy: 0xef4017)
+[+] MMIO traffic: I2C 2w/2r, SPI 2w/1r
+[SUCCESS] I2C/SPI sensor bus simulation verified on real executed firmware.

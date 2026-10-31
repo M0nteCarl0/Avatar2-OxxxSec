@@ -1,0 +1,13 @@
+[*] Initializing DMA Controller Simulation...
+[+] DMA controller mapped at 0x40026000
+[*] Executing firmware that programs the DMA channel...
+[DMA] SRC <- 0x08000080
+[DMA] DST <- 0x20000100
+[DMA] LEN <- 16 bytes
+[DMA] Transfer complete: b'AVATAR2-DMA-POC!' -> 0x20000100
+[DMA] Status polled from PC 0x08000012: 0x00000002
+[+] MMIO writes / reads : 4 / 2
+[+] Copied buffer in RAM: b'AVATAR2-DMA-POC!'
+[+] Bytes transferred   : 16 (stashed by firmware: 16)
+[+] Channel status      : 0x00000002 (DONE)
+[SUCCESS] DMA controller simulation verified against real firmware execution.

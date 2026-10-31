@@ -1,0 +1,19 @@
+[*] Initializing Avatar2 Embedded GDBServer Plugin...
+[+] Avatar2 GDBServer Plugin configured:
+  Listening Endpoint: 127.0.0.1:3333
+  Target Attached   : 'orchestrated_mcu' (Architecture: type)
+
+=================================================================
+  EXTERNAL DEBUGGER CONNECTION INSTRUCTIONS
+=================================================================
+In Ghidra Debugger / IDA Pro / GDB Console:
+  (gdb) target remote 127.0.0.1:3333
+  (gdb) set architecture arm
+  (gdb) x/10i $pc
+=================================================================
+
+[+] Emulated CPU Status for GUI client:
+  PC : 0x08001000 [Reset Handler]
+  SP : 0x20007ff0
+  Status: READY_FOR_ATTACHMENT
+[SUCCESS] GDBServer plugin setup verified.

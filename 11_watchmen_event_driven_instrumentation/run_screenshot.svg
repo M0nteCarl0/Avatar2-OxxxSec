@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="543" height="222" viewBox="0 0 543 222" role="img" aria-label="Terminal output of 11_watchmen_event_driven_instrumentation">
+  <rect width="543" height="222" rx="10" fill="#0d1117"/>
+  <rect width="543" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">11_watchmen_event_driven_instrumentation</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 Watchmen Event Subsystem...</text>
+    <text x="18" y="102" fill="#c9d1d9">[*] Subscribing listener to 'UpdateState' (AFTER phase)...</text>
+    <text x="18" y="121" fill="#c9d1d9">  [WATCHMEN] Target 'supervised_core' transitioned to state: 4</text>
+    <text x="18" y="140" fill="#79c0ff">[+] Total Watchmen events recorded in journal: 1</text>
+    <text x="18" y="159" fill="#c9d1d9">  1. [WATCHMEN] Target 'supervised_core' transitioned to state: 4</text>
+    <text x="18" y="178" fill="#3fb950">[SUCCESS] Watchmen event-driven instrumentation verified.</text>
+    <text x="18" y="197" fill="#7ee787">$</text>
+  </g>
+</svg>

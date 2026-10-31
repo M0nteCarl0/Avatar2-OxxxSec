@@ -1,0 +1,14 @@
+[*] Initializing Watchdog Timer Simulation...
+[+] Watchdog Timer mapped at 0x40003000
+[*] Running firmware (1 watchdog tick per 64 retired instructions)...
+[WDT] Enabled by firmware (PC: 0x08000006)
+[WDT PET] Counter reloaded to 3 (pet #1, PC: 0x0800000c)
+[WDT TICK] Counter 2/3
+[WDT TICK] Counter 1/3
+[WDT TICK] Counter 0/3
+[WDT EXPIRED] Timeout reached -> hardware MCU reset asserted
+[+] Retired instructions : 192
+[+] Watchdog pets        : 1
+[+] Final counter        : 0/3
+[+] Reset asserted       : True
+[SUCCESS] Watchdog timeout verified against real executed firmware.

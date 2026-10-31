@@ -1,0 +1,10 @@
+[*] Initializing Avatar2 Hardware-in-the-Loop Forwarding Engine...
+[+] Memory forwarding route established:
+  Range: 0x40020000 - 0x40021000 -> Target: 'physical_radio_chip' (forwarded=True)
+[*] Simulating guest execution executing 'LDR R0, [0x40020000]'...
+[HITL FORWARD READ] Emulated PC: 0x08000450 -> Read HW Offset 0x00 (Size: 4) = 0x48415244
+[+] Guest received physical hardware value: 0x48415244 (ASCII: 'HARD')
+[*] Simulating guest execution executing 'STR R1, [0x40020008]' (Channel 11)...
+[HITL FORWARD WRITE] Emulated PC: 0x08000458 -> Write HW Offset 0x08 = 0x0000000b
+[+] Physical register updated successfully.
+[SUCCESS] Hardware-in-the-Loop memory forwarding verified.

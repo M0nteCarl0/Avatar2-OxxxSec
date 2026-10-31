@@ -1,0 +1,16 @@
+[*] Initializing File-Backed NVRAM / Wear Levelling Emulation...
+[+] NVRAM controller mapped at 0x40023000, backing file nvm_image.bin
+[*] Executing firmware that rewrites the same logical slot repeatedly...
+[NVRAM] Program 0x000000a0 @ logical 0x0000 -> physical sector 0 (PC=0x08000010)
+[NVRAM] Program 0x000000a1 @ logical 0x0000 -> physical sector 0 (PC=0x08000010)
+[NVRAM] Program 0x000000a2 @ logical 0x0000 -> physical sector 1 (PC=0x08000010)
+[NVRAM] Program 0x000000a3 @ logical 0x0000 -> physical sector 1 (PC=0x08000010)
+[NVRAM] Program 0x000000a4 @ logical 0x0000 -> physical sector 2 (PC=0x08000010)
+[NVRAM] WEAR read by firmware: max=2 distribution=[2, 2, 1, 0, 0, 0, 0, 0]
+[+] Programs performed    : 5
+[+] Physical sectors used : [0, 1, 2] (wear levelling)
+[+] Wear distribution     : [2, 2, 1, 0, 0, 0, 0, 0]
+[+] WEAR register read    : 2
+[+] Controller STATUS     : 0x00000002
+[+] Backing file size     : 2048 bytes
+[SUCCESS] File-backed NVRAM wear levelling verified on real executed firmware.

@@ -1,0 +1,15 @@
+[*] Initializing Breakpoint & Watchpoint Automation...
+[+] Avatar2 target and memory map ready
+[+] Watchpoint variable : 0x20000000
+[+] Breakpoint (GPIO)   : 0x0800000e
+[+] Loop body entry     : 0x08000004
+[*] Resuming target with breakpoints/watchpoints armed...
+[WATCHPOINT] Write of 1 to 0x20000000 (PC: 0x08000006)
+[WATCHPOINT] Write of 2 to 0x20000000 (PC: 0x08000006)
+[WATCHPOINT] Write of 3 to 0x20000000 (PC: 0x08000006)
+[BREAKPOINT HIT] PC=0x0800000e R0=3 -> halting target
+[+] Watchpoint hits     : 3 (values: [1, 2, 3])
+[+] Breakpoint hits     : 1
+[+] Counter value in RAM: 3
+[+] Halted PC           : 0x0800000e
+[SUCCESS] Breakpoint and watchpoint automation verified on real execution.

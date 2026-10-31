@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="753" height="640" viewBox="0 0 753 640" role="img" aria-label="Terminal output of 18_hybrid_symbolic_execution_angr">
+  <rect width="753" height="640" rx="10" fill="#0d1117"/>
+  <rect width="753" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">18_hybrid_symbolic_execution_angr</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Assembling the Cortex-M3 passcode check with Keystone...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Firmware blob: 40 bytes at 0x08000000</text>
+    <text x="18" y="121" fill="#c9d1d9">  0x08000000: ldr      r1, [pc, #0x20]</text>
+    <text x="18" y="140" fill="#c9d1d9">  0x08000002: ldrh     r0, [r1]</text>
+    <text x="18" y="159" fill="#c9d1d9">  0x08000004: movw     r3, #0x5a5a</text>
+    <text x="18" y="178" fill="#c9d1d9">  0x08000008: eors     r0, r3</text>
+    <text x="18" y="197" fill="#c9d1d9">  0x0800000a: movs     r2, #3</text>
+    <text x="18" y="216" fill="#c9d1d9">  0x0800000c: muls     r0, r2, r0</text>
+    <text x="18" y="235" fill="#c9d1d9">  0x0800000e: movw     r1, #0x2345</text>
+    <text x="18" y="254" fill="#c9d1d9">  0x08000012: movt     r1, #1</text>
+    <text x="18" y="273" fill="#c9d1d9">  0x08000016: cmp      r0, r1</text>
+    <text x="18" y="292" fill="#c9d1d9">  0x08000018: bne      #0x800001e</text>
+    <text x="18" y="311" fill="#c9d1d9">  0x0800001a: movs     r7, #1</text>
+    <text x="18" y="330" fill="#c9d1d9">  0x0800001c: b        #0x8000020</text>
+    <text x="18" y="349" fill="#c9d1d9">  0x0800001e: movs     r7, #0</text>
+    <text x="18" y="368" fill="#c9d1d9">  0x08000020: b        #0x8000020</text>
+    <text x="18" y="387" fill="#c9d1d9">  0x08000022: nop      </text>
+    <text x="18" y="406" fill="#c9d1d9">  0x08000024: movs     r0, r0</text>
+    <text x="18" y="425" fill="#c9d1d9">  0x08000026: movs     r0, #0</text>
+    <text x="18" y="444" fill="#79c0ff">[+] Avatar2 orchestration ready (flash + RAM ranges registered)</text>
+    <text x="18" y="463" fill="#c9d1d9">[*] Transferring the branch constraint to the symbolic engine (angr)...</text>
+    <text x="18" y="482" fill="#79c0ff">[+] SMT constraint solver produced a SAT model:</text>
+    <text x="18" y="501" fill="#c9d1d9">  Recovered passcode : 0x3B4D (15181)</text>
+    <text x="18" y="520" fill="#c9d1d9">  Constraint         : ((0x3B4D ^ 0x5A5A) * 3) == 0x12345</text>
+    <text x="18" y="539" fill="#79c0ff">[+] Concrete execution with 0x3B4D: R7 = 1 (expected 1)</text>
+    <text x="18" y="558" fill="#79c0ff">[+] Concrete execution with wrong passcode: R7 = 0 (expected 0)</text>
+    <text x="18" y="577" fill="#79c0ff">[+] Passcode patch payload: 4d3b -&gt; write it to target RAM at 0x20000000 to bypass the check</text>
+    <text x="18" y="596" fill="#3fb950">[SUCCESS] Hybrid dynamic-symbolic workflow verified (angr + Unicorn).</text>
+    <text x="18" y="615" fill="#7ee787">$</text>
+  </g>
+</svg>

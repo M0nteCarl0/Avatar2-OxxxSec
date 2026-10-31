@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="644" height="336" viewBox="0 0 644 336" role="img" aria-label="Terminal output of 09_virtual_uart_serial_telemetry">
+  <rect width="644" height="336" rx="10" fill="#0d1117"/>
+  <rect width="644" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">09_virtual_uart_serial_telemetry</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Virtual UART Telemetry Capture...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Assembled firmware blob: 766 bytes, banner at 0x08000200</text>
+    <text x="18" y="121" fill="#79c0ff">[+] Avatar2 peripheral model 'pl011_uart' mapped at 0x4000c000</text>
+    <text x="18" y="140" fill="#c9d1d9">[*] Streaming firmware serial output through the virtual UART...</text>
+    <text x="18" y="159" fill="#c9d1d9">[UART CONSOLE OUT] [*] Bootloader v2.4.1 (Cortex-M3) initializing...</text>
+    <text x="18" y="178" fill="#c9d1d9">[UART CONSOLE OUT] [+] CPU clock 72 MHz | SRAM 64 KB | Flash 256 KB</text>
+    <text x="18" y="197" fill="#c9d1d9">[UART CONSOLE OUT] [+] Peripheral bus clock initialized: OK</text>
+    <text x="18" y="216" fill="#c9d1d9">[UART CONSOLE OUT] [!] Warning: integrity check bypassed in debug build</text>
+    <text x="18" y="235" fill="#c9d1d9">[UART CONSOLE OUT] [+] Entered main operational loop. Type 'help' for console.</text>
+    <text x="18" y="254" fill="#79c0ff">[+] Captured 5 complete lines of firmware telemetry.</text>
+    <text x="18" y="273" fill="#79c0ff">[+] Real MMIO transactions observed: 253</text>
+    <text x="18" y="292" fill="#3fb950">[SUCCESS] Virtual UART telemetry capture verified on real executed firmware.</text>
+    <text x="18" y="311" fill="#7ee787">$</text>
+  </g>
+</svg>

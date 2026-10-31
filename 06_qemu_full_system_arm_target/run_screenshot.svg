@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="469" viewBox="0 0 660 469" role="img" aria-label="Terminal output of 06_qemu_full_system_arm_target">
+  <rect width="660" height="469" rx="10" fill="#0d1117"/>
+  <rect width="660" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">06_qemu_full_system_arm_target</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 Full-System QEMU Target...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Avatar2 memory map for the board registered:</text>
+    <text x="18" y="121" fill="#c9d1d9">  Target Machine : lm3s6965evb (cortex-m3)</text>
+    <text x="18" y="140" fill="#c9d1d9">  Flash          : 0x00000000 .. 0x0003ffff</text>
+    <text x="18" y="159" fill="#c9d1d9">  SRAM           : 0x20000000 .. 0x2000ffff</text>
+    <text x="18" y="178" fill="#79c0ff">[+] Assembled firmware image: 72 bytes (SP=0x20004000, Reset_Handler=0x00000040)</text>
+    <text x="18" y="197" fill="#79c0ff">[+] Launching real QEMU: D:\Program Files\qemu\qemu-system-arm.EXE</text>
+    <text x="18" y="216" fill="#79c0ff">[+] Connected to the QEMU gdbstub on 127.0.0.1:61906</text>
+    <text x="18" y="235" fill="#c9d1d9">[*] RSP stop reason packet ($?): T05thread:01;</text>
+    <text x="18" y="254" fill="#79c0ff">[+] Vector table consumed by the CPU on reset:</text>
+    <text x="18" y="273" fill="#c9d1d9">  Initial SP : 0x20004000 [Expected: 0x20004000]</text>
+    <text x="18" y="292" fill="#c9d1d9">  Reset PC   : 0x00000040 [Expected: 0x00000040]</text>
+    <text x="18" y="311" fill="#79c0ff">[+] $m packet read of the vector table: 0040002041000000</text>
+    <text x="18" y="330" fill="#79c0ff">[+] $M packet write of b'AVATAR' into SRAM: OK</text>
+    <text x="18" y="349" fill="#c9d1d9">[*] Arming hardware breakpoint at 0x00000044 ($Z0)...</text>
+    <text x="18" y="368" fill="#79c0ff">[+] Resume reply ($c): T05thread:01;</text>
+    <text x="18" y="387" fill="#79c0ff">[+] Breakpoint hit: PC=0x00000044 R0=42</text>
+    <text x="18" y="406" fill="#79c0ff">[+] RSP packets exchanged: 8</text>
+    <text x="18" y="425" fill="#3fb950">[SUCCESS] Full-system QEMU target booted and controlled over real RSP.</text>
+    <text x="18" y="444" fill="#7ee787">$</text>
+  </g>
+</svg>

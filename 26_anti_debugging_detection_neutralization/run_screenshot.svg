@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="777" height="317" viewBox="0 0 777 317" role="img" aria-label="Terminal output of 26_anti_debugging_detection_neutralization">
+  <rect width="777" height="317" rx="10" fill="#0d1117"/>
+  <rect width="777" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">26_anti_debugging_detection_neutralization</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Embedded Anti-Debugging Neutralization Harness...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Stealth CoreDebug block mapped at 0xE000E000.</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Simulating firmware executing 'check_debugger_present()'...</text>
+    <text x="18" y="140" fill="#c9d1d9">[ANTI-DEBUG TRAP] PC 0x08000550 read CoreDebug-&gt;DHCSR! Spoofing C_DEBUGEN = 0 (Debugger Hidden)</text>
+    <text x="18" y="159" fill="#79c0ff">[+] Firmware received DHCSR: 0x00000000 (C_DEBUGEN bit is 0)</text>
+    <text x="18" y="178" fill="#79c0ff">[+] Anti-debug check bypassed: Firmware concluded 'NO DEBUGGER CONNECTED'!</text>
+    <text x="18" y="197" fill="#c9d1d9">[*] Simulating firmware checking DWT execution cycle delta...</text>
+    <text x="18" y="216" fill="#c9d1d9">[ANTI-DEBUG TIMING] PC 0x08000560 read DWT_CYCCNT! Returning spoofed cycles: 1005</text>
+    <text x="18" y="235" fill="#c9d1d9">[ANTI-DEBUG TIMING] PC 0x08000568 read DWT_CYCCNT! Returning spoofed cycles: 1010</text>
+    <text x="18" y="254" fill="#79c0ff">[+] Measured cycle delta: 5 cycles (Normal execution speed, no stepping detected)</text>
+    <text x="18" y="273" fill="#3fb950">[SUCCESS] Anti-debugging detection and neutralization verified.</text>
+    <text x="18" y="292" fill="#7ee787">$</text>
+  </g>
+</svg>

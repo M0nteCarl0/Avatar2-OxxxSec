@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="667" height="355" viewBox="0 0 667 355" role="img" aria-label="Terminal output of 15_fast_remote_memory_protocol">
+  <rect width="667" height="355" rx="10" fill="#0d1117"/>
+  <rect width="667" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">15_fast_remote_memory_protocol</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 Remote Memory Protocol &amp; Demand Paging...</text>
+    <text x="18" y="102" fill="#c9d1d9">[PAGE FAULT] Address 0x08000000 not cached. Requesting page 0x08000000 via RMP...</text>
+    <text x="18" y="121" fill="#c9d1d9">  [RMP SERVER] Page Fault at 0x08000000 -&gt; Serving 4KB block (Total pages: 1)</text>
+    <text x="18" y="140" fill="#79c0ff">[+] Read 0x08000000: 0x544f4f42 ('BOOT')</text>
+    <text x="18" y="159" fill="#c9d1d9">[CACHE HIT] Address 0x08000004 resolved from local page 0x08000000 (Zero IPC!)</text>
+    <text x="18" y="178" fill="#79c0ff">[+] Read 0x08000004: 0x44414f4c ('LOAD')</text>
+    <text x="18" y="197" fill="#c9d1d9">[PAGE FAULT] Address 0x08001000 not cached. Requesting page 0x08001000 via RMP...</text>
+    <text x="18" y="216" fill="#c9d1d9">  [RMP SERVER] Page Fault at 0x08001000 -&gt; Serving 4KB block (Total pages: 2)</text>
+    <text x="18" y="235" fill="#79c0ff">[+] Read 0x08001000: 0x52434553 ('SECR')</text>
+    <text x="18" y="254" fill="#c9d1d9">[CACHE HIT] Address 0x08001004 resolved from local page 0x08001000 (Zero IPC!)</text>
+    <text x="18" y="273" fill="#79c0ff">[+] Read 0x08001004: 0x465f5445 ('ET_F')</text>
+    <text x="18" y="292" fill="#79c0ff">[+] Summary: Fetched 2 remote pages total; satisfied 4 word reads.</text>
+    <text x="18" y="311" fill="#3fb950">[SUCCESS] Remote Memory Protocol demand-paging verified.</text>
+    <text x="18" y="330" fill="#7ee787">$</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+# ==============================================================================
+# Avatar2 Framework & Firmware Emulation Playbook Dependencies
+# ==============================================================================
+
+# Core Orchestration & Emulation Engines
+avatar2>=1.4.7
+unicorn>=2.1.0
+capstone>=5.0.0
+keystone-engine>=0.9.2
+
+# Debugging, Disassembly & Protocol Drivers
+pygdbmi>=0.11.0.0
+pylink-square>=2.0.2
+pyusb>=1.3.1
+intervaltree>=3.2.1
+bitstring>=4.4.0
+bitarray>=3.0.0
+parse>=1.22.4
+configparser>=7.0.0
+npyscreen>=5.0.4
+
+# Static & Symbolic Binary Analysis (Optional / Integration)
+angr>=10.0.0; platform_system != "Windows" or python_version < "3.13"
+# angr 10 ships protobuf-generated code that requires a matching runtime (post 18 uses angr directly)
+protobuf>=7.35.0
+pyelftools>=0.30
+
+# System, CLI & Output Formatting
+psutil>=5.9.0
+rich>=13.0.0
+colorama>=0.4.6
+loguru>=0.7.2
+PyYAML>=6.0.0
+typing_extensions>=4.10.0
+
+# Telegram PNG export used by run_all_and_log.py (optional: skipped when absent)
+pillow>=10.0.0

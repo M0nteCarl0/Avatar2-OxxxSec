@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="558" height="545" viewBox="0 0 558 545" role="img" aria-label="Terminal output of 24_firmware_fuzzing_harness_avatar">
+  <rect width="558" height="545" rx="10" fill="#0d1117"/>
+  <rect width="558" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">24_firmware_fuzzing_harness_avatar</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 In-Memory Fuzzing Harness...</text>
+    <text x="18" y="102" fill="#c9d1d9">[*] Starting fuzzing campaign for 50 iterations...</text>
+    <text x="18" y="121" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #6: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="140" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #8: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="159" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #15: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="178" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #17: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="197" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #23: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="216" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #31: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="235" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #37: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="254" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #42: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="273" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #45: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="292" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #48: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="311" fill="#c9d1d9">  [CRASH DETECTED!] Iteration #50: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="330" fill="#c9d1d9"></text>
+    <text x="18" y="349" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="368" fill="#c9d1d9">  FUZZING CAMPAIGN SUMMARY</text>
+    <text x="18" y="387" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="406" fill="#c9d1d9">Total Iterations : 50</text>
+    <text x="18" y="425" fill="#c9d1d9">Unique Crashes   : 11</text>
+    <text x="18" y="444" fill="#c9d1d9">First Crash at   : Iteration #6</text>
+    <text x="18" y="463" fill="#c9d1d9">Crashing Reason  : Iteration #6: Buffer Overflow (Length 88 &gt; 32)</text>
+    <text x="18" y="482" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="501" fill="#3fb950">[SUCCESS] In-memory fuzzing harness verified.</text>
+    <text x="18" y="520" fill="#7ee787">$</text>
+  </g>
+</svg>

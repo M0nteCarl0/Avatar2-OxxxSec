@@ -1,0 +1,17 @@
+[*] Initializing FreeRTOS Kernel Introspection Suite...
+[*] Walking FreeRTOS `pxReadyTasksLists` in emulated SRAM...
+
+=================================================================
+  FREERTOS RUNTIME TASK INTROSPECTION TABLE
+=================================================================
+TCB Addr     Task Name        Priority   Current SP   Stack Base
+-----------------------------------------------------------------
+0x20001000   IDLE             0          0x200013e0   0x20001000
+0x20001400   NetworkTask      3          0x200017d0   0x20001400
+0x20001800   CryptoEngine     2          0x20001bd8   0x20001800
+0x20001c00   SensorsTask      1          0x20001fe0   0x20001c00
+=================================================================
+[+] Task 'NetworkTask' Stack Analysis:
+  Allocated Stack   : 1024 bytes
+  Remaining Headroom: 976 bytes [SAFE - NO OVERFLOW]
+[SUCCESS] FreeRTOS task introspection verified.

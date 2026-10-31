@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="636" height="355" viewBox="0 0 636 355" role="img" aria-label="Terminal output of 22_dma_controller_buffer_simulation">
+  <rect width="636" height="355" rx="10" fill="#0d1117"/>
+  <rect width="636" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">22_dma_controller_buffer_simulation</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing DMA Controller Simulation...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] DMA controller mapped at 0x40026000</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Executing firmware that programs the DMA channel...</text>
+    <text x="18" y="140" fill="#c9d1d9">[DMA] SRC &lt;- 0x08000080</text>
+    <text x="18" y="159" fill="#c9d1d9">[DMA] DST &lt;- 0x20000100</text>
+    <text x="18" y="178" fill="#c9d1d9">[DMA] LEN &lt;- 16 bytes</text>
+    <text x="18" y="197" fill="#c9d1d9">[DMA] Transfer complete: b'AVATAR2-DMA-POC!' -&gt; 0x20000100</text>
+    <text x="18" y="216" fill="#c9d1d9">[DMA] Status polled from PC 0x08000012: 0x00000002</text>
+    <text x="18" y="235" fill="#79c0ff">[+] MMIO writes / reads : 4 / 2</text>
+    <text x="18" y="254" fill="#79c0ff">[+] Copied buffer in RAM: b'AVATAR2-DMA-POC!'</text>
+    <text x="18" y="273" fill="#79c0ff">[+] Bytes transferred   : 16 (stashed by firmware: 16)</text>
+    <text x="18" y="292" fill="#79c0ff">[+] Channel status      : 0x00000002 (DONE)</text>
+    <text x="18" y="311" fill="#3fb950">[SUCCESS] DMA controller simulation verified against real firmware execution.</text>
+    <text x="18" y="330" fill="#7ee787">$</text>
+  </g>
+</svg>

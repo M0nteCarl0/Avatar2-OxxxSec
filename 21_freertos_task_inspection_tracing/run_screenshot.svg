@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="543" height="431" viewBox="0 0 543 431" role="img" aria-label="Terminal output of 21_freertos_task_inspection_tracing">
+  <rect width="543" height="431" rx="10" fill="#0d1117"/>
+  <rect width="543" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">21_freertos_task_inspection_tracing</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing FreeRTOS Kernel Introspection Suite...</text>
+    <text x="18" y="102" fill="#c9d1d9">[*] Walking FreeRTOS `pxReadyTasksLists` in emulated SRAM...</text>
+    <text x="18" y="121" fill="#c9d1d9"></text>
+    <text x="18" y="140" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="159" fill="#c9d1d9">  FREERTOS RUNTIME TASK INTROSPECTION TABLE</text>
+    <text x="18" y="178" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="197" fill="#c9d1d9">TCB Addr     Task Name        Priority   Current SP   Stack Base</text>
+    <text x="18" y="216" fill="#c9d1d9">-----------------------------------------------------------------</text>
+    <text x="18" y="235" fill="#c9d1d9">0x20001000   IDLE             0          0x200013e0   0x20001000</text>
+    <text x="18" y="254" fill="#c9d1d9">0x20001400   NetworkTask      3          0x200017d0   0x20001400</text>
+    <text x="18" y="273" fill="#c9d1d9">0x20001800   CryptoEngine     2          0x20001bd8   0x20001800</text>
+    <text x="18" y="292" fill="#c9d1d9">0x20001c00   SensorsTask      1          0x20001fe0   0x20001c00</text>
+    <text x="18" y="311" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="330" fill="#79c0ff">[+] Task 'NetworkTask' Stack Analysis:</text>
+    <text x="18" y="349" fill="#c9d1d9">  Allocated Stack   : 1024 bytes</text>
+    <text x="18" y="368" fill="#c9d1d9">  Remaining Headroom: 976 bytes [SAFE - NO OVERFLOW]</text>
+    <text x="18" y="387" fill="#3fb950">[SUCCESS] FreeRTOS task introspection verified.</text>
+    <text x="18" y="406" fill="#7ee787">$</text>
+  </g>
+</svg>

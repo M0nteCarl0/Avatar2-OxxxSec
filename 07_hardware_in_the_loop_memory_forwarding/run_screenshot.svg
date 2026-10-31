@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="730" height="298" viewBox="0 0 730 298" role="img" aria-label="Terminal output of 07_hardware_in_the_loop_memory_forwarding">
+  <rect width="730" height="298" rx="10" fill="#0d1117"/>
+  <rect width="730" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">07_hardware_in_the_loop_memory_forwarding</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 Hardware-in-the-Loop Forwarding Engine...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Memory forwarding route established:</text>
+    <text x="18" y="121" fill="#c9d1d9">  Range: 0x40020000 - 0x40021000 -&gt; Target: 'physical_radio_chip' (forwarded=True)</text>
+    <text x="18" y="140" fill="#c9d1d9">[*] Simulating guest execution executing 'LDR R0, [0x40020000]'...</text>
+    <text x="18" y="159" fill="#c9d1d9">[HITL FORWARD READ] Emulated PC: 0x08000450 -&gt; Read HW Offset 0x00 (Size: 4) = 0x48415244</text>
+    <text x="18" y="178" fill="#79c0ff">[+] Guest received physical hardware value: 0x48415244 (ASCII: 'HARD')</text>
+    <text x="18" y="197" fill="#c9d1d9">[*] Simulating guest execution executing 'STR R1, [0x40020008]' (Channel 11)...</text>
+    <text x="18" y="216" fill="#c9d1d9">[HITL FORWARD WRITE] Emulated PC: 0x08000458 -&gt; Write HW Offset 0x08 = 0x0000000b</text>
+    <text x="18" y="235" fill="#79c0ff">[+] Physical register updated successfully.</text>
+    <text x="18" y="254" fill="#3fb950">[SUCCESS] Hardware-in-the-Loop memory forwarding verified.</text>
+    <text x="18" y="273" fill="#7ee787">$</text>
+  </g>
+</svg>

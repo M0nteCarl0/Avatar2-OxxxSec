@@ -1,0 +1,23 @@
+[*] Initializing Avatar2 In-Memory Fuzzing Harness...
+[*] Starting fuzzing campaign for 50 iterations...
+  [CRASH DETECTED!] Iteration #6: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #8: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #15: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #17: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #23: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #31: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #37: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #42: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #45: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #48: Buffer Overflow (Length 88 > 32)
+  [CRASH DETECTED!] Iteration #50: Buffer Overflow (Length 88 > 32)
+
+=================================================================
+  FUZZING CAMPAIGN SUMMARY
+=================================================================
+Total Iterations : 50
+Unique Crashes   : 11
+First Crash at   : Iteration #6
+Crashing Reason  : Iteration #6: Buffer Overflow (Length 88 > 32)
+=================================================================
+[SUCCESS] In-memory fuzzing harness verified.

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="652" height="507" viewBox="0 0 652 507" role="img" aria-label="Terminal output of 30_automated_firmware_triage_pipeline">
+  <rect width="652" height="507" rx="10" fill="#0d1117"/>
+  <rect width="652" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">30_automated_firmware_triage_pipeline</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Starting Automated Triage Pipeline for: sample_triage_firmware.bin</text>
+    <text x="18" y="102" fill="#79c0ff">[+] SHA256: dc93158c855520f17ffebf353b9f086172447998771c08452b35e4183e237643</text>
+    <text x="18" y="121" fill="#79c0ff">[+] Size  : 1054 bytes</text>
+    <text x="18" y="140" fill="#79c0ff">[+] Triage Report written to: triage_report.json</text>
+    <text x="18" y="159" fill="#3fb950">[SUCCESS] Automated triage pipeline execution finished.</text>
+    <text x="18" y="178" fill="#c9d1d9"></text>
+    <text x="18" y="197" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="216" fill="#c9d1d9">  AUTOMATED HEADLESS FIRMWARE TRIAGE REPORT SUMMARY</text>
+    <text x="18" y="235" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="254" fill="#c9d1d9">File Name    : sample_triage_firmware.bin</text>
+    <text x="18" y="273" fill="#c9d1d9">SHA-256      : dc93158c855520f17ffebf353b9f086172447998771c08452b35e4183e237643</text>
+    <text x="18" y="292" fill="#c9d1d9">Threat Score : 85/100 [HIGH RISK]</text>
+    <text x="18" y="311" fill="#c9d1d9">IOCs Found   : 3</text>
+    <text x="18" y="330" fill="#c9d1d9">  -&gt; [C2_ENDPOINT] 198.51.100.42:8443</text>
+    <text x="18" y="349" fill="#c9d1d9">  -&gt; [HARDCODED_KEY] 000102030405060708090a0b0c0d0e0f</text>
+    <text x="18" y="368" fill="#c9d1d9">  -&gt; [DEFAULT_CREDENTIAL] admin:supersecret123</text>
+    <text x="18" y="387" fill="#c9d1d9">Critical Findings:</text>
+    <text x="18" y="406" fill="#c9d1d9">  [!] Hardcoded 128-bit cryptographic key located in plain memory</text>
+    <text x="18" y="425" fill="#c9d1d9">  [!] Unencrypted C2 command-and-control IP address identified</text>
+    <text x="18" y="444" fill="#c9d1d9">  [!] Default administrative credentials hardcoded in firmware string table</text>
+    <text x="18" y="463" fill="#c9d1d9">=================================================================</text>
+    <text x="18" y="482" fill="#7ee787">$</text>
+  </g>
+</svg>

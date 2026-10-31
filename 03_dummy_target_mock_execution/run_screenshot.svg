@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="519" height="279" viewBox="0 0 519 279" role="img" aria-label="Terminal output of 03_dummy_target_mock_execution">
+  <rect width="519" height="279" rx="10" fill="#0d1117"/>
+  <rect width="519" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">03_dummy_target_mock_execution</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing DummyTarget for Synthetic Unit-Testing...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] DummyTarget 'mock_cortex_m3' initialized in state: 4</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Setting initial CPU register state (ARM Cortex-M reset)...</text>
+    <text x="18" y="140" fill="#79c0ff">[+] Register Context:</text>
+    <text x="18" y="159" fill="#c9d1d9">  SP : 0x20010000  LR : 0xffffffff</text>
+    <text x="18" y="178" fill="#c9d1d9">  PC : 0x08000101  R0 : 0x20001000 (Buffer: 0x20001000)</text>
+    <text x="18" y="197" fill="#c9d1d9">  R1 : 256 bytes</text>
+    <text x="18" y="216" fill="#79c0ff">[+] Function return value (R0): 0 [SUCCESS]</text>
+    <text x="18" y="235" fill="#3fb950">[SUCCESS] DummyTarget test workflow completed cleanly.</text>
+    <text x="18" y="254" fill="#7ee787">$</text>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+[*] Initializing ARMv7-M NVIC Interrupt Injection...
+[+] NVIC modeled at 0xe000e000
+[*] Executing firmware that programs the NVIC...
+[NVIC] ISER <- 0x00000020: enabled mask 0x00000020
+[NVIC] Priority of IRQ 5 <- 1
+[NVIC] IRQ 5 set pending (enabled=True)
+[NVIC] ISER read -> 0x00000020 (PC=0x08000012)
+[NVIC] ISPR read -> 0x00000020
+[NVIC] ICPR <- 0x00000020: pending mask 0x00000000
+[NVIC] ISPR read -> 0x00000000
+[NVIC] STIR <- IRQ 5 injected via software trigger
+[+] ISER read back by firmware : 0x00000020
+[+] ISPR read back by firmware : 0x00000020
+[+] ISPR after ICPR clear      : 0x00000000
+[+] IRQs injected              : [5, 5]
+[+] Priorities programmed      : {5: 1}
+[+] MMIO traffic               : 5w/3r
+[SUCCESS] NVIC interrupt injection verified on real executed firmware.

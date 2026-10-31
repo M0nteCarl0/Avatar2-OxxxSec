@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="412" viewBox="0 0 660 412" role="img" aria-label="Terminal output of 28_nvram_flash_wear_leveling_emulation">
+  <rect width="660" height="412" rx="10" fill="#0d1117"/>
+  <rect width="660" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">28_nvram_flash_wear_leveling_emulation</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing File-Backed NVRAM / Wear Levelling Emulation...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] NVRAM controller mapped at 0x40023000, backing file nvm_image.bin</text>
+    <text x="18" y="121" fill="#c9d1d9">[*] Executing firmware that rewrites the same logical slot repeatedly...</text>
+    <text x="18" y="140" fill="#c9d1d9">[NVRAM] Program 0x000000a0 @ logical 0x0000 -&gt; physical sector 0 (PC=0x08000010)</text>
+    <text x="18" y="159" fill="#c9d1d9">[NVRAM] Program 0x000000a1 @ logical 0x0000 -&gt; physical sector 0 (PC=0x08000010)</text>
+    <text x="18" y="178" fill="#c9d1d9">[NVRAM] Program 0x000000a2 @ logical 0x0000 -&gt; physical sector 1 (PC=0x08000010)</text>
+    <text x="18" y="197" fill="#c9d1d9">[NVRAM] Program 0x000000a3 @ logical 0x0000 -&gt; physical sector 1 (PC=0x08000010)</text>
+    <text x="18" y="216" fill="#c9d1d9">[NVRAM] Program 0x000000a4 @ logical 0x0000 -&gt; physical sector 2 (PC=0x08000010)</text>
+    <text x="18" y="235" fill="#c9d1d9">[NVRAM] WEAR read by firmware: max=2 distribution=[2, 2, 1, 0, 0, 0, 0, 0]</text>
+    <text x="18" y="254" fill="#79c0ff">[+] Programs performed    : 5</text>
+    <text x="18" y="273" fill="#79c0ff">[+] Physical sectors used : [0, 1, 2] (wear levelling)</text>
+    <text x="18" y="292" fill="#79c0ff">[+] Wear distribution     : [2, 2, 1, 0, 0, 0, 0, 0]</text>
+    <text x="18" y="311" fill="#79c0ff">[+] WEAR register read    : 2</text>
+    <text x="18" y="330" fill="#79c0ff">[+] Controller STATUS     : 0x00000002</text>
+    <text x="18" y="349" fill="#79c0ff">[+] Backing file size     : 2048 bytes</text>
+    <text x="18" y="368" fill="#3fb950">[SUCCESS] File-backed NVRAM wear levelling verified on real executed firmware.</text>
+    <text x="18" y="387" fill="#7ee787">$</text>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+[*] Initializing Avatar2 Remote Memory Protocol & Demand Paging...
+[PAGE FAULT] Address 0x08000000 not cached. Requesting page 0x08000000 via RMP...
+  [RMP SERVER] Page Fault at 0x08000000 -> Serving 4KB block (Total pages: 1)
+[+] Read 0x08000000: 0x544f4f42 ('BOOT')
+[CACHE HIT] Address 0x08000004 resolved from local page 0x08000000 (Zero IPC!)
+[+] Read 0x08000004: 0x44414f4c ('LOAD')
+[PAGE FAULT] Address 0x08001000 not cached. Requesting page 0x08001000 via RMP...
+  [RMP SERVER] Page Fault at 0x08001000 -> Serving 4KB block (Total pages: 2)
+[+] Read 0x08001000: 0x52434553 ('SECR')
+[CACHE HIT] Address 0x08001004 resolved from local page 0x08001000 (Zero IPC!)
+[+] Read 0x08001004: 0x465f5445 ('ET_F')
+[+] Summary: Fetched 2 remote pages total; satisfied 4 word reads.
+[SUCCESS] Remote Memory Protocol demand-paging verified.

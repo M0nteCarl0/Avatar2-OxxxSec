@@ -1,0 +1,28 @@
+[*] Assembling the Cortex-M3 passcode check with Keystone...
+[+] Firmware blob: 40 bytes at 0x08000000
+  0x08000000: ldr      r1, [pc, #0x20]
+  0x08000002: ldrh     r0, [r1]
+  0x08000004: movw     r3, #0x5a5a
+  0x08000008: eors     r0, r3
+  0x0800000a: movs     r2, #3
+  0x0800000c: muls     r0, r2, r0
+  0x0800000e: movw     r1, #0x2345
+  0x08000012: movt     r1, #1
+  0x08000016: cmp      r0, r1
+  0x08000018: bne      #0x800001e
+  0x0800001a: movs     r7, #1
+  0x0800001c: b        #0x8000020
+  0x0800001e: movs     r7, #0
+  0x08000020: b        #0x8000020
+  0x08000022: nop      
+  0x08000024: movs     r0, r0
+  0x08000026: movs     r0, #0
+[+] Avatar2 orchestration ready (flash + RAM ranges registered)
+[*] Transferring the branch constraint to the symbolic engine (angr)...
+[+] SMT constraint solver produced a SAT model:
+  Recovered passcode : 0x3B4D (15181)
+  Constraint         : ((0x3B4D ^ 0x5A5A) * 3) == 0x12345
+[+] Concrete execution with 0x3B4D: R7 = 1 (expected 1)
+[+] Concrete execution with wrong passcode: R7 = 0 (expected 0)
+[+] Passcode patch payload: 4d3b -> write it to target RAM at 0x20000000 to bypass the check
+[SUCCESS] Hybrid dynamic-symbolic workflow verified (angr + Unicorn).

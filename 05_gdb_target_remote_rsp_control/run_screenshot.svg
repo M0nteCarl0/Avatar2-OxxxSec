@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="745" height="697" viewBox="0 0 745 697" role="img" aria-label="Terminal output of 05_gdb_target_remote_rsp_control">
+  <rect width="745" height="697" rx="10" fill="#0d1117"/>
+  <rect width="745" height="34" rx="10" fill="#161b22"/>
+  <circle cx="18" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="38" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="58" cy="17" r="6" fill="#27c93f"/>
+  <text x="80" y="21" fill="#8b949e" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="12">05_gdb_target_remote_rsp_control</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="13" xml:space="preserve">
+    <text x="18" y="64" fill="#7ee787">$ python example.py</text>
+    <text x="18" y="83" fill="#c9d1d9">[*] Initializing Avatar2 GDB Target Abstraction...</text>
+    <text x="18" y="102" fill="#79c0ff">[+] Avatar2 GDB target wrapper ready (RSP endpoint 127.0.0.1:61899)</text>
+    <text x="18" y="121" fill="#79c0ff">[+] Connected to a live gdbstub - speaking raw RSP frames</text>
+    <text x="18" y="140" fill="#c9d1d9">[*] $?  stop reason      -&gt; T05thread:01;</text>
+    <text x="18" y="159" fill="#c9d1d9">[*] $qSupported          -&gt; PacketSize=1000;qXfer:features:read+;vContSupported+;multipr...</text>
+    <text x="18" y="178" fill="#79c0ff">[+] $g register cache fetched:</text>
+    <text x="18" y="197" fill="#c9d1d9">  PC : 0x00000040</text>
+    <text x="18" y="216" fill="#c9d1d9">  SP : 0x20004000</text>
+    <text x="18" y="235" fill="#c9d1d9">  R0 : 0x00000000</text>
+    <text x="18" y="254" fill="#c9d1d9">[*] $P writing R0 = 0xcafebabe ...</text>
+    <text x="18" y="273" fill="#79c0ff">[+] R0 read back after $P: 0xcafebabe</text>
+    <text x="18" y="292" fill="#c9d1d9">[*] $M writing b'RSP!' into SRAM ...</text>
+    <text x="18" y="311" fill="#79c0ff">[+] $m read back: b'RSP!'</text>
+    <text x="18" y="330" fill="#c9d1d9">[*] $Z0 arming breakpoint at 0x00000044 ...</text>
+    <text x="18" y="349" fill="#79c0ff">[+] $c resume -&gt; T05thread:p01.01;</text>
+    <text x="18" y="368" fill="#79c0ff">[+] Stopped at PC=0x00000044 R0=7</text>
+    <text x="18" y="387" fill="#c9d1d9">[*] $z0 removing breakpoint ... OK</text>
+    <text x="18" y="406" fill="#79c0ff">[+] RSP packet log (payload, checksum):</text>
+    <text x="18" y="425" fill="#c9d1d9">  $?#3f</text>
+    <text x="18" y="444" fill="#c9d1d9">  $qSupported:multiprocess+#c6</text>
+    <text x="18" y="463" fill="#c9d1d9">  $g#67</text>
+    <text x="18" y="482" fill="#c9d1d9">  $P0=bebafeca#d6</text>
+    <text x="18" y="501" fill="#c9d1d9">  $g#67</text>
+    <text x="18" y="520" fill="#c9d1d9">  $M20000000,4:52535021#00</text>
+    <text x="18" y="539" fill="#c9d1d9">  $m20000000,4#4f</text>
+    <text x="18" y="558" fill="#c9d1d9">  $m20000000,4#4f</text>
+    <text x="18" y="577" fill="#c9d1d9">  $Z0,44,2#7c</text>
+    <text x="18" y="596" fill="#c9d1d9">  $c#63</text>
+    <text x="18" y="615" fill="#c9d1d9">  $g#67</text>
+    <text x="18" y="634" fill="#c9d1d9">  $z0,44,2#9c</text>
+    <text x="18" y="653" fill="#3fb950">[SUCCESS] GDB RSP control sequence completed on a live peer (12 packets).</text>
+    <text x="18" y="672" fill="#7ee787">$</text>
+  </g>
+</svg>

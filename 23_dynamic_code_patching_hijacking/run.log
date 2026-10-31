@@ -1,0 +1,9 @@
+[*] Initializing Dynamic In-Memory Hot-Patching Suite...
+[*] Assembled Thumb-2 hot-patch: 'nop; nop' -> 00BF00BF
+[!] Target at verification check: PC=0x080012a4, R0=0xffffffff [FAIL STATUS]
+[*] Applying hot-patch at 0x080012a4 to neutralize branch...
+[+] Memory at 0x080012a4 successfully patched with: 00bf00bf
+[+] Signature check successfully bypassed!
+  New PC : 0x080012a8 (Continued into normal firmware)
+  New R0 : 0x00000000 [SIGNATURE_VALID]
+[SUCCESS] Dynamic binary hot-patching verified.
