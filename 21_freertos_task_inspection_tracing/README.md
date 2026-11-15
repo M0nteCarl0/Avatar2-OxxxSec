@@ -72,9 +72,9 @@ if __name__ == "__main__":
 - **TCB Base**: `0x20001000`
 
 ## 🔗 Resources
-- FreeRTOS Kernel Internal Data Structures (https://www.freertos.org/a00017.html)
-- Mastering the FreeRTOS Real Time Kernel (https://www.freertos.org/Documentation/RTOS_book.html)
-
-**Full script, run log & report**: [`21_freertos_task_inspection_tracing/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/21_freertos_task_inspection_tracing)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #FreeRTOS #RTOS #FirmwareSecurity #EmbeddedSystems #ReverseEngineering

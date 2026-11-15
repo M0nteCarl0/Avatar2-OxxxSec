@@ -266,22 +266,20 @@ if __name__ == "__main__":
     # --------------------------------------------------------------------------
     10: '''#!/usr/bin/env python3
 """Post 10: Hardware Decrementing Timers & Watchdog Pet Simulation.
-Firmware pets a modeled IWDG, then deadlocks - the watchdog really expires."""
+Firmware pets a modeled IWDG, then deadlocks - the watchdog expires."""
 
 from avatar2 import Avatar, TargetStates, ARM_CORTEX_M3
 from avatar2.peripherals import AvatarPeripheral
 from avatar2.targets import DummyTarget
 
 WDT_BASE, WDT_SIZE = 0x40003000, 0x1000
-TICK_PERIOD, EMU_BUDGET = 40, 3000    # 1 watchdog tick per 40 emulated instructions
+TICK_PERIOD, EMU_BUDGET = 40, 3000     # 1 watchdog tick per 40 instructions
 
 
 class VirtualWatchdogTimer(AvatarPeripheral):
-    """IWDG block: enable via KR, pet via RLR, decrement on every tick."""
-
-    def __init__(self, name, address, size, max_ticks=3):  # noqa: D401
+    def __init__(self, name, address, size, max_ticks=3):
         super().__init__(name, address, size)
-        self.max_ticks, self.counter = max_ticks, max_ticks
+        self.counter = max_ticks
         self.enabled = self.reset_triggered = False
         self.pets_count = 0
 
@@ -311,7 +309,9 @@ def run_watchdog_simulation_demo():
     wdt.write(0x04, 4, 3)                           # pets it once, then deadlocks
     for _ in range(EMU_BUDGET // TICK_PERIOD):
         wdt.tick()
-    print(f"[+] pets={wdt.pets_count} reset={wdt.reset_triggered} counter={wdt.read(0x08, 4)}")
+    print(f"[+] pets={wdt.pets_count} counter={wdt.counter} "
+          f"reset={wdt.reset_triggered}")
+    ava.shutdown()
 
 
 if __name__ == "__main__":
@@ -990,7 +990,7 @@ if __name__ == "__main__":
     # --------------------------------------------------------------------------
     24: '''#!/usr/bin/env python3
 """Post 24: In-Memory Mutation Fuzzing Harness for Firmware Parsers.
-Builds a high-speed snapshot-restore mutation fuzzing loop for embedded packet parsers."""
+Snapshot-restore mutation fuzzing loop for embedded packet parsers."""
 
 import random
 
@@ -1009,8 +1009,8 @@ class EmulatedTarget(DummyTarget):
 class FirmwareFuzzingHarness:
     """Snapshot -> mutate -> run -> restore: the whole campaign runs in memory."""
 
-    def __init__(self, target, input_buf_addr=0x20001000, max_buf_size=32):
-        self.target, self.input_buf_addr = target, input_buf_addr
+    def __init__(self, target, buf=0x20001000, max_buf_size=32):
+        self.target, self.input_buf_addr = target, buf
         self.max_buf_size, self.crashes, self.snapshot = max_buf_size, [], {}
 
     def run_fuzz_campaign(self, seed, iterations=200):
@@ -1321,8 +1321,6 @@ IOC_PATTERNS = {"ipv4": rb"\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b",
 
 
 class ProductionTriageEngine:
-    """Hashes the image, extracts IOCs by signature and scores the threat level."""
-
     def __init__(self, firmware_path):
         self.path = firmware_path
         with open(firmware_path, "rb") as handle:
@@ -1332,7 +1330,7 @@ class ProductionTriageEngine:
         iocs = [{"type": kind, "value": match.group(0).decode("latin-1")}
                 for kind, pattern in IOC_PATTERNS.items()
                 for match in re.finditer(pattern, self.blob)]
-        report = {"metadata": {"firmware_file": self.path, "size_bytes": len(self.blob),
+        report = {"metadata": {"firmware_file": self.path,
                                "sha256": hashlib.sha256(self.blob).hexdigest()},
                   "risk_assessment": {"threat_score": min(100, 25 * len(iocs))},
                   "extracted_iocs": iocs}
@@ -1343,8 +1341,7 @@ class ProductionTriageEngine:
 
 def run_pipeline_demo():
     ava = Avatar(arch=ARM_CORTEX_M3, configure_logging=False)
-    target = ava.add_target(DummyTarget, name="triage_cpu")
-    target.update_state(TargetStates.STOPPED)
+    ava.add_target(DummyTarget, name="triage_cpu").update_state(TargetStates.STOPPED)
     ava.add_memory_range(0x08000000, 0x40000, name="image_flash", permissions="r-x")
     ava.init_targets()
 

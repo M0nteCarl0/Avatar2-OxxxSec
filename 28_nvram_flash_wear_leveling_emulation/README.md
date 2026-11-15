@@ -68,6 +68,7 @@ if __name__ == "__main__":
 ## 🔥 Use Cases
 - Extracting Wi-Fi credentials, private keys, and cloud API tokens from extracted IoT flash dumps.
 - Testing firmware recovery behavior when SPI Flash sectors are corrupted or zeroed.
+- Analyzing embedded flash file systems (LittleFS, SPIFFS, UBIFS) for directory traversal flaws.
 
 ## ⚠️ Caveats & Responsible Practice
 - NOR Flash memory can only flip bits from 1 to 0; writing 0 to 1 requires a preceding Sector Erase (`0x20`).
@@ -79,8 +80,9 @@ if __name__ == "__main__":
 - **Extracted Config**: `PART_CFG:SSID=Corporate_IoT;PSK=SuperSecretPass2026;ADMIN=1;`
 
 ## 🔗 Resources
-- Winbond W25Q32JV Serial NOR Flash Datasheet (https://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf)
-
-**Full script, run log & report**: [`28_nvram_flash_wear_leveling_emulation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/28_nvram_flash_wear_leveling_emulation)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #SPIFlash #NVRAM #Winbond #ReverseEngineering #IoT #FirmwareSecurity

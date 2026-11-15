@@ -79,8 +79,9 @@ if __name__ == "__main__":
 - **Trace Sequence**: Reset -> UART Input (`A`, `D`, `M`) -> Authentication Validation Check (`0x08000300`)
 
 ## 🔗 Resources
-- PANDA: Platform for Architecture-Neutral Dynamic Analysis (https://panda.re/)
-
-**Full script, run log & report**: [`25_panda_record_replay_analysis/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/25_panda_record_replay_analysis)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #PANDA #RecordReplay #TaintAnalysis #FirmwareForensics #ReverseEngineering

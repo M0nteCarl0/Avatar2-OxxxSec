@@ -88,7 +88,7 @@ def format_post_markdown(post: dict, is_standalone: bool = True) -> str:
 # ------------------------------------------------------------------------------
 
 TELEGRAM_MESSAGE_LIMIT = 4096   # hard limit of a single Telegram text message
-TELEGRAM_SAFE_UNITS = 3900      # ~5% headroom for client-side counters
+TELEGRAM_SAFE_UNITS = 4064      # 32 units below the hard limit for safety
 
 
 def telegram_units(text: str) -> int:
@@ -135,6 +135,18 @@ _POST_PROFILES = (
     dict(concepts=3, use_cases=3, caveats=2, resources=1, intro=230, item=150),
     dict(concepts=3, use_cases=2, caveats=2, resources=1, intro=200, item=150),
     dict(concepts=3, use_cases=2, caveats=2, resources=0, intro=180, item=150),
+    dict(concepts=2, use_cases=2, caveats=1, resources=0, intro=180, item=150),
+)
+
+
+# Standard "🔗 Resources" block of every chapter post (same in all 26 posts).
+POST_RESOURCES = (
+    "- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)",
+    "- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)",
+    "- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)",
+    "- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and "
+    "dynamic-analysis playbook — this chapter's sources, run log, report and execution "
+    "screenshot.",
 )
 
 
@@ -154,16 +166,9 @@ def _render_telegram_post(post: dict, profile: dict) -> str:
     md.extend(["", "## 📦 Test Data & Sample Binaries"])
     md.extend(_clip(line, profile["item"] + 15)
               for line in post["test_data"].splitlines() if line.strip())
-    if profile["resources"]:
-        md.extend(["", "## 🔗 Resources"])
-        md.extend(f"- {resource}" for resource in post["resources"][:profile["resources"]])
-    md.extend(["", f"**Full script, run log & report**: [`{post['dir_name']}/example.py`]"
-                   f"({REPO_URL}/tree/main/{post['dir_name']})",
-               "", " ".join(post["hashtags"]), ""])
-    return "\n".join(md)
-    md.extend(["", f"**Full script, run log & report**: [`{post['dir_name']}/example.py`]"
-                   f"({REPO_URL}/tree/main/{post['dir_name']})",
-               "", " ".join(post["hashtags"]), ""])
+    md.extend(["", "## 🔗 Resources"])
+    md.extend(POST_RESOURCES)
+    md.extend(["", " ".join(post["hashtags"]), ""])
     return "\n".join(md)
 
 
@@ -335,8 +340,9 @@ def build_root_readme(posts: list) -> str:
         "(`# <emoji> <title> (Python practice)` → intro → Core Concept → Implementation Example → Use Cases",
         "→ Caveats & Responsible Practice → Test Data → Resources → hashtags) and stays below the",
         "4096 UTF-16 code units of a single Telegram message, with the shortened implementation example",
-        "inlined. The full, hand-tested reference script for every chapter stays in `example.py`.",
-        "`verify_all.py` re-checks the message budget of every README.",
+        "inlined. The `🔗 Resources` block is identical in every post (Avatar2 repository, docs, the",
+        "EURECOM paper and the link to this repository). The full, hand-tested reference script of a",
+        "chapter stays in its `example.py`; `verify_all.py` re-checks the message budget of every README.",
         "",
         "The long-form variants (full source embedded, better suited for a blog or a wiki page) of all",
         "30 chapters stay compiled in:",

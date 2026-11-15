@@ -77,8 +77,9 @@ if __name__ == "__main__":
 - **Simulated Action**: Hash calculation over string `KEY!` -> Digest `0x1337BEEB`
 
 ## 🔗 Resources
-- AvatarPeripheral Base Class Reference (https://avatar2.readthedocs.io/en/latest/api/peripherals.html)
-
-**Full script, run log & report**: [`08_python_peripheral_modeling_mmio/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/08_python_peripheral_modeling_mmio)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #MMIO #HardwareEmulation #PythonSecurity #ReverseEngineering #Embedded

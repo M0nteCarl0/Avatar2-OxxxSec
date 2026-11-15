@@ -75,8 +75,9 @@ if __name__ == "__main__":
 - **Simulated Gravity Vector**: `X = 0.0G`, `Y = 0.0G`, `Z = +1.0G` (`0x4000`)
 
 ## 🔗 Resources
-- ST LIS3DH 3-Axis Accelerometer Datasheet (https://www.st.com/resource/en/datasheet/lis3dh.pdf)
-
-**Full script, run log & report**: [`27_sensor_bus_i2c_spi_simulation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/27_sensor_bus_i2c_spi_simulation)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #I2C #SPI #Sensors #LIS3DH #HardwareEmulation #FirmwareSecurity

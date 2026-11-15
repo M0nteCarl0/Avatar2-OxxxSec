@@ -11,7 +11,7 @@ Embedded microcontrollers frequently parse untrusted complex inputs: Bluetooth L
 ```python
 #!/usr/bin/env python3
 """Post 24: In-Memory Mutation Fuzzing Harness for Firmware Parsers.
-Builds a high-speed snapshot-restore mutation fuzzing loop for embedded packet parsers."""
+Snapshot-restore mutation fuzzing loop for embedded packet parsers."""
 
 import random
 
@@ -30,8 +30,8 @@ class EmulatedTarget(DummyTarget):
 class FirmwareFuzzingHarness:
     """Snapshot -> mutate -> run -> restore: the whole campaign runs in memory."""
 
-    def __init__(self, target, input_buf_addr=0x20001000, max_buf_size=32):
-        self.target, self.input_buf_addr = target, input_buf_addr
+    def __init__(self, target, buf=0x20001000, max_buf_size=32):
+        self.target, self.input_buf_addr = target, buf
         self.max_buf_size, self.crashes, self.snapshot = max_buf_size, [], {}
 
     def run_fuzz_campaign(self, seed, iterations=200):
@@ -79,6 +79,10 @@ if __name__ == "__main__":
 - **Seed Input**: `CMD:GET_TELEMETRY_STATUS` (Length: 24 bytes)
 - **Buffer Capacity**: 32 bytes (Overflow threshold)
 
-**Full script, run log & report**: [`24_firmware_fuzzing_harness_avatar/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/24_firmware_fuzzing_harness_avatar)
+## 🔗 Resources
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #Fuzzing #FirmwareSecurity #VulnerabilityResearch #BufferOverflow #Embedded

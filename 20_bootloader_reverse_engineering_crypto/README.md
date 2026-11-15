@@ -75,8 +75,9 @@ if __name__ == "__main__":
 - **Extracted Key**: `000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f` (256 bits)
 
 ## 🔗 Resources
-- STM32 Cryptographic Processor (CRYP/AES) Reference Manual (https://www.st.com/resource/en/application_note/an3969-stm32-crossseries-cryptographic-library-stmicroelectronics.pdf)
-
-**Full script, run log & report**: [`20_bootloader_reverse_engineering_crypto/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/20_bootloader_reverse_engineering_crypto)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #Cryptography #AES256 #KeyExtraction #Bootloader #ReverseEngineering #FirmwareSecurity

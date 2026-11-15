@@ -6,6 +6,7 @@ While standalone CPU emulators handle basic opcode execution, real-world embedde
 - **Full-System QEMU Virtualization**: Emulating not just CPU cores, but interrupt controllers (NVIC), buses, and timers.
 - **Board Profile Selection**: Instantiating standardized embedded board machine models (e.g., `lm3s6965evb`).
 - **QMP Protocol Communication**: Programmatic control over QEMU internal state, snapshots, and runtime device configuration.
+- **Kernel / Firmware Ingestion**: Loading raw binary images or ELF kernels into virtual ROM address spaces.
 
 ## 💻 Implementation Example
 ```python
@@ -68,6 +69,7 @@ if __name__ == "__main__":
 ## ⚠️ Caveats & Responsible Practice
 - QEMU system emulation requires the host machine to have `qemu-system-arm` installed and in PATH.
 - Standard QEMU machine types have rigid memory layouts; mismatching your firmware's linker script causes boot faults.
+- QEMU TCG optimizes basic blocks, which can alter timing assumptions in cycle-accurate firmware.
 
 ## 📦 Test Data & Sample Binaries
 - **Target Board**: Texas Instruments Stellaris `lm3s6965evb`
@@ -75,9 +77,9 @@ if __name__ == "__main__":
 - **Memory Layout**: Flash (256 KB @ `0x00000000`), SRAM (64 KB @ `0x20000000`)
 
 ## 🔗 Resources
-- QEMU ARM System Emulator Documentation (https://www.qemu.org/docs/master/system/target-arm.html)
-- Avatar2 QemuTarget Implementation (https://github.com/avatartwo/avatar2/blob/master/avatar2/targets/qemu_target.py)
-
-**Full script, run log & report**: [`06_qemu_full_system_arm_target/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/06_qemu_full_system_arm_target)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #QEMU #ARM #FirmwareEmulation #CortexM #EmbeddedSecurity

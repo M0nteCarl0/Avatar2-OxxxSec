@@ -11,22 +11,20 @@ Embedded microcontrollers implement Hardware Watchdog Timers (WDT) to recover fr
 ```python
 #!/usr/bin/env python3
 """Post 10: Hardware Decrementing Timers & Watchdog Pet Simulation.
-Firmware pets a modeled IWDG, then deadlocks - the watchdog really expires."""
+Firmware pets a modeled IWDG, then deadlocks - the watchdog expires."""
 
 from avatar2 import Avatar, TargetStates, ARM_CORTEX_M3
 from avatar2.peripherals import AvatarPeripheral
 from avatar2.targets import DummyTarget
 
 WDT_BASE, WDT_SIZE = 0x40003000, 0x1000
-TICK_PERIOD, EMU_BUDGET = 40, 3000    # 1 watchdog tick per 40 emulated instructions
+TICK_PERIOD, EMU_BUDGET = 40, 3000     # 1 watchdog tick per 40 instructions
 
 
 class VirtualWatchdogTimer(AvatarPeripheral):
-    """IWDG block: enable via KR, pet via RLR, decrement on every tick."""
-
-    def __init__(self, name, address, size, max_ticks=3):  # noqa: D401
+    def __init__(self, name, address, size, max_ticks=3):
         super().__init__(name, address, size)
-        self.max_ticks, self.counter = max_ticks, max_ticks
+        self.counter = max_ticks
         self.enabled = self.reset_triggered = False
         self.pets_count = 0
 
@@ -56,7 +54,9 @@ def run_watchdog_simulation_demo():
     wdt.write(0x04, 4, 3)                           # pets it once, then deadlocks
     for _ in range(EMU_BUDGET // TICK_PERIOD):
         wdt.tick()
-    print(f"[+] pets={wdt.pets_count} reset={wdt.reset_triggered} counter={wdt.read(0x08, 4)}")
+    print(f"[+] pets={wdt.pets_count} counter={wdt.counter} "
+          f"reset={wdt.reset_triggered}")
+    ava.shutdown()
 
 
 if __name__ == "__main__":
@@ -77,6 +77,10 @@ if __name__ == "__main__":
 - **Control Keys**: Enable (`0xCCCC`), Reload (`0xAAAA`)
 - **Initial Countdown**: 3 ticks
 
-**Full script, run log & report**: [`10_hardware_timer_watchdog_simulation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/10_hardware_timer_watchdog_simulation)
+## 🔗 Resources
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #WatchdogTimer #IWDG #FirmwareSecurity #AntiAnalysis #Embedded

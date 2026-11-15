@@ -75,9 +75,9 @@ if __name__ == "__main__":
 - **Stacking Frame**: 32-byte standard integer exception frame
 
 ## 🔗 Resources
-- Avatar2 ARMv7-M Interrupt Protocol (https://github.com/avatartwo/avatar2/blob/master/avatar2/protocols/armv7m_interrupt.py)
-- ARM Cortex-M3 NVIC Technical User Guide (https://developer.arm.com/documentation/dui0552/a/the-cortex-m3-processor/exception-model)
-
-**Full script, run log & report**: [`14_armv7m_nvic_interrupt_injection/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/14_armv7m_nvic_interrupt_injection)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #NVIC #InterruptInjection #ARM #CortexM #FirmwareSecurity

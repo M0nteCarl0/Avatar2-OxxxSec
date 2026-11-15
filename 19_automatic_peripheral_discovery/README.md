@@ -71,9 +71,9 @@ if __name__ == "__main__":
 - **Discovered Block 2**: `0x40011000` (Timer Counter & Config)
 
 ## 🔗 Resources
-- Automated Hardware Model Generation Techniques (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
-- HALucinator: Firmware Re-hosting through Hardware Abstraction Layer Interception (https://www.usenix.org/conference/usenixsecurity20/presentation/clements)
-
-**Full script, run log & report**: [`19_automatic_peripheral_discovery/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/19_automatic_peripheral_discovery)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #FirmwareReversing #PeripheralDiscovery #IoT #ReverseEngineering #HardwareHacking

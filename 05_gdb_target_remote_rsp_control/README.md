@@ -75,9 +75,9 @@ if __name__ == "__main__":
 - **Target Registers**: `PC=0x08001234`, `SP=0x20003FE0`, `R0=0xDEADBEEF`
 
 ## 🔗 Resources
-- GDB Remote Serial Protocol Specification (https://sourceware.org/gdb/current/onlinedocs/gdb.html/Remote-Protocol.html)
-- Avatar2 GDB Protocol Implementation (https://github.com/avatartwo/avatar2/blob/master/avatar2/protocols/gdb.py)
-
-**Full script, run log & report**: [`05_gdb_target_remote_rsp_control/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/05_gdb_target_remote_rsp_control)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #GDB #RSP #FirmwareDebugging #HardwareHacking #ReverseEngineering

@@ -6,6 +6,7 @@ During bootup, almost every embedded microcontroller transmits debug logs, bootl
 - **UART Architecture Emulation**: Modeling the standard PL011 / STM32 USART register interface.
 - **Data Register (DR) Interception**: Capturing transmitted TX bytes and queuing incoming RX bytes.
 - **Flag Register (FR) Status Simulation**: Emulating Transmit FIFO Empty (`TXFE`) and Receive FIFO Not Empty (`RXNE`) flags.
+- **Real-Time String De-packetization**: Buffering raw byte writes and decoding ASCII newline-delimited log strings.
 
 ## 💻 Implementation Example
 ```python
@@ -63,10 +64,12 @@ if __name__ == "__main__":
 - Capturing runtime panic traces and assertion failure logs from stripped firmware.
 - Automated scraping of compile-time Git commit hashes and build dates from boot banners.
 - Fuzzing embedded command-line shells (BusyBox, U-Boot CLI) over simulated serial terminals.
+- Bypassing interactive password prompts by pre-loading serial RX FIFO queues with credentials.
 
 ## ⚠️ Caveats & Responsible Practice
 - Firmware checking baud rate divisor registers (`UARTIBRD`) must receive non-zero values to avoid division-by-zero faults.
 - Ensure the flag register reports `TXFE` (Transmit FIFO Empty); otherwise firmware loops waiting forever in serial polling loops.
+- Handle multi-byte UTF-8 sequences properly when decoding guest log streams.
 
 ## 📦 Test Data & Sample Binaries
 - **Peripheral Model**: ARM PrimeCell PL011 UART
@@ -74,9 +77,9 @@ if __name__ == "__main__":
 - **Registers**: Data Register `UARTDR (0x00)`, Flag Register `UARTFR (0x18)`
 
 ## 🔗 Resources
-- ARM PrimeCell UART (PL011) Technical Reference Manual (https://developer.arm.com/documentation/ddi0183/latest)
-- Avatar2 Peripheral Modeling Documentation (https://avatar2.readthedocs.io/en/latest/api/peripherals.html)
-
-**Full script, run log & report**: [`09_virtual_uart_serial_telemetry/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/09_virtual_uart_serial_telemetry)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #UART #SerialConsole #FirmwareAnalysis #PL011 #EmbeddedSecurity

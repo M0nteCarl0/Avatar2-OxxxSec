@@ -80,9 +80,9 @@ if __name__ == "__main__":
 - **Cache Strategy**: Transparent Demand-Paging with Local In-Memory Cache
 
 ## 🔗 Resources
-- Avatar2 RemoteMemoryProtocol Source (https://github.com/avatartwo/avatar2/blob/master/avatar2/protocols/remote_memory.py)
-- Demand Paging Operating System Concepts (https://en.wikipedia.org/wiki/Demand_paging)
-
-**Full script, run log & report**: [`15_fast_remote_memory_protocol/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/15_fast_remote_memory_protocol)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #RMP #DemandPaging #PerformanceOptimization #FirmwareAnalysis #ReverseEngineering

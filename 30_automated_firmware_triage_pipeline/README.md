@@ -26,8 +26,6 @@ IOC_PATTERNS = {"ipv4": rb"\b(?:\d{1,3}\.){3}\d{1,3}\b",
 
 
 class ProductionTriageEngine:
-    """Hashes the image, extracts IOCs by signature and scores the threat level."""
-
     def __init__(self, firmware_path):
         self.path = firmware_path
         with open(firmware_path, "rb") as handle:
@@ -37,7 +35,7 @@ class ProductionTriageEngine:
         iocs = [{"type": kind, "value": match.group(0).decode("latin-1")}
                 for kind, pattern in IOC_PATTERNS.items()
                 for match in re.finditer(pattern, self.blob)]
-        report = {"metadata": {"firmware_file": self.path, "size_bytes": len(self.blob),
+        report = {"metadata": {"firmware_file": self.path,
                                "sha256": hashlib.sha256(self.blob).hexdigest()},
                   "risk_assessment": {"threat_score": min(100, 25 * len(iocs))},
                   "extracted_iocs": iocs}
@@ -48,8 +46,7 @@ class ProductionTriageEngine:
 
 def run_pipeline_demo():
     ava = Avatar(arch=ARM_CORTEX_M3, configure_logging=False)
-    target = ava.add_target(DummyTarget, name="triage_cpu")
-    target.update_state(TargetStates.STOPPED)
+    ava.add_target(DummyTarget, name="triage_cpu").update_state(TargetStates.STOPPED)
     ava.add_memory_range(0x08000000, 0x40000, name="image_flash", permissions="r-x")
     ava.init_targets()
 
@@ -79,6 +76,10 @@ if __name__ == "__main__":
 - **Output Format**: Structured JSON Threat Intelligence Report (`triage_report.json`)
 - **Extracted IOCs**: C2 IP (`198.51.100.42`), AES Key, Admin Credential (`admin:supersecret123`)
 
-**Full script, run log & report**: [`30_automated_firmware_triage_pipeline/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/30_automated_firmware_triage_pipeline)
+## 🔗 Resources
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #FirmwareTriage #ThreatIntel #DevSecOps #CyberSecurity #ReverseEngineering #IoT

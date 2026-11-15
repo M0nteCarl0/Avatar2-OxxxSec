@@ -1,6 +1,6 @@
 # ⚡️ 🔀 Hardware-in-the-Loop (HITL) Memory Forwarding Architecture (Python practice)
 
-The defining breakthrough of the Avatar2 framework is **Memory Forwarding**.
+The defining breakthrough of the Avatar2 framework is **Memory Forwarding**. When reverse engineering proprietary embedded systems, emulating the entire hardware peripheral landscape (radio transceivers, cryptographic coprocessors, proprietary ASICs) is prohibitively expensive or impossible.
 
 ## 🧠 Core Concept
 - **Transparent Memory Forwarding**: Intercepting guest MMIO reads/writes and proxying them across targets.
@@ -57,6 +57,7 @@ if __name__ == "__main__":
 - Executing encrypted firmware inside an emulator while forwarding crypto MMIO to a physical hardware HSM.
 - Analyzing Bluetooth and Zigbee IoT stacks by forwarding baseband radio registers to real silicon.
 - Fuzzing complex network parser functions in virtual machines while keeping physical actuators connected.
+- Extracting secret keys from on-chip hardware accelerators without physical decapping.
 
 ## ⚠️ Caveats & Responsible Practice
 - Memory forwarding introduces latency (~1ms per JTAG transaction); avoid forwarding high-frequency DMA buffers.
@@ -69,9 +70,9 @@ if __name__ == "__main__":
 - **Simulated Hardware Registers**: `Device ID (0x00)`, `Status (0x04)`, `Config (0x08)`
 
 ## 🔗 Resources
-- Avatar2 Memory Forwarding Architecture (https://avatar2.readthedocs.io/en/latest/api/peripherals.html)
-- Research Paper: Towards Fully Automated Firmware Analysis (https://s3.eurecom.fr/docs/ndss14_avatar.pdf)
-
-**Full script, run log & report**: [`07_hardware_in_the_loop_memory_forwarding/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/07_hardware_in_the_loop_memory_forwarding)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #HITL #MemoryForwarding #HardwareSecurity #IoT #FirmwareAnalysis

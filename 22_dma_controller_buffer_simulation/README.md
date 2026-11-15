@@ -76,6 +76,10 @@ if __name__ == "__main__":
 - **Base Address**: `0x40020000` (Size: 4 KB)
 - **Source Address**: `0x4000C000` (UART DR) | **Dest Address**: `0x20002000` (SRAM)
 
-**Full script, run log & report**: [`22_dma_controller_buffer_simulation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/22_dma_controller_buffer_simulation)
+## 🔗 Resources
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #DMA #MemoryArchitecture #FirmwareSecurity #HardwareEmulation #Embedded

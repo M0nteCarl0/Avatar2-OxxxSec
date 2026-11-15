@@ -55,6 +55,7 @@ if __name__ == "__main__":
 - Enforcing execution timeouts and watchdog policies when targets enter unhandled states.
 - Capturing instruction trace logs automatically whenever a target enters `TargetStates.STOPPED`.
 - Building live terminal dashboards displaying multi-target cluster status in real time.
+- Synchronizing external network traffic packet sniffers to target execution milestones.
 
 ## ⚠️ Caveats & Responsible Practice
 - Watchmen callbacks run synchronously within event dispatcher threads; avoid heavy I/O operations inside hooks.
@@ -68,10 +69,9 @@ if __name__ == "__main__":
 - **Observed Transitions**: `STOPPED` -> `RUNNING` -> `STOPPED`
 
 ## 🔗 Resources
-- Avatar2 Watchmen Implementation (https://github.com/avatartwo/avatar2/blob/master/avatar2/watchmen.py)
-- Event-Driven Architecture in Reverse Engineering Tools (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
-- Python Pub/Sub Design Patterns (https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)
-
-**Full script, run log & report**: [`11_watchmen_event_driven_instrumentation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/11_watchmen_event_driven_instrumentation)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #Watchmen #EventDriven #BinaryInstrumentation #FirmwareAnalysis #CyberSecurity

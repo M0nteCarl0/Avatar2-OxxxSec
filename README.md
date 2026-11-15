@@ -175,8 +175,9 @@ Chapters **05–30** ship a `README.md` that **is** the Telegram post: it keeps 
 (`# <emoji> <title> (Python practice)` → intro → Core Concept → Implementation Example → Use Cases
 → Caveats & Responsible Practice → Test Data → Resources → hashtags) and stays below the
 4096 UTF-16 code units of a single Telegram message, with the shortened implementation example
-inlined. The full, hand-tested reference script for every chapter stays in `example.py`.
-`verify_all.py` re-checks the message budget of every README.
+inlined. The `🔗 Resources` block is identical in every post (Avatar2 repository, docs, the
+EURECOM paper and the link to this repository). The full, hand-tested reference script of a
+chapter stays in its `example.py`; `verify_all.py` re-checks the message budget of every README.
 
 The long-form variants (full source embedded, better suited for a blog or a wiki page) of all
 30 chapters stay compiled in:

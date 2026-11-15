@@ -81,8 +81,9 @@ if __name__ == "__main__":
 - **Monitored Registers**: `R0` (Buffer), `R1` (PIN: 1234)
 
 ## 🔗 Resources
-- Avatar2 Target Breakpoint Interface (https://avatar2.readthedocs.io/en/latest/api/targets.html)
-
-**Full script, run log & report**: [`12_breakpoint_watchpoint_automation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/12_breakpoint_watchpoint_automation)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #Breakpoints #Watchpoints #ReverseEngineering #FirmwareSecurity #HardwareHacking

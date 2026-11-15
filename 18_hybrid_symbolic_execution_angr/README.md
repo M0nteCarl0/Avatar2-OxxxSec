@@ -87,8 +87,9 @@ if __name__ == "__main__":
 - **Solved PIN**: `0x3B4D` (Decimal: 15181)
 
 ## 🔗 Resources
-- angr Binary Analysis Framework (https://angr.io/)
-
-**Full script, run log & report**: [`18_hybrid_symbolic_execution_angr/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/18_hybrid_symbolic_execution_angr)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #angr #SymbolicExecution #ReverseEngineering #SMT #BinaryAnalysis #Z3

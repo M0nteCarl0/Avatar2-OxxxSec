@@ -6,6 +6,7 @@ High-security embedded firmware (automotive gateways, IoT payment terminals, sma
 - **Cortex-M CoreDebug Registers**: Inspecting `DHCSR` (Debug Halting Control and Status Register @ `0xE000EDF0`).
 - **`C_DEBUGEN` Bit Spoofing**: Returning 0 on `DHCSR` reads so firmware believes no debugger is attached.
 - **DWT Cycle Counter Neutralization**: Defeating time-delta checks measuring execution delays between instructions.
+- **DBGMCU Configuration Virtualization**: Masking debug freeze control bits in microcontroller system registers.
 
 ## 💻 Implementation Example
 ```python
@@ -62,10 +63,12 @@ if __name__ == "__main__":
 - Bypassing anti-tamper wipe mechanisms in banking terminals and Point-of-Sale (POS) devices.
 - Neutralizing DWT cycle timing checks in game console security microcontrollers.
 - Conducting undisturbed dynamic analysis of obfuscated IoT malware.
+- Analyzing automotive electronic keys without triggering anti-cloning lockouts.
 
 ## ⚠️ Caveats & Responsible Practice
 - Some microcontrollers use proprietary vendor registers (such as STM32 `DBGMCU_CR`) in addition to standard ARM SCS.
 - Single-stepping code that reads the SysTick current value (`STK_CVR`) can also reveal debugger presence.
+- External watchdogs or companion monitoring chips can detect halted CPU cores independently.
 
 ## 📦 Test Data & Sample Binaries
 - **Target Register**: ARM CoreDebug DHCSR @ `0xE000EDF0`
@@ -73,9 +76,9 @@ if __name__ == "__main__":
 - **Spoofed Values**: `DHCSR = 0x00000000`, `Delta = 5 cycles`
 
 ## 🔗 Resources
-- ARM Cortex-M3 CoreDebug Registers Specification (https://developer.arm.com/documentation/dui0552/a/the-cortex-m3-processor/peripherals/coredebug)
-- Anti-Debugging Techniques in Embedded ARM Firmware (https://www.blackhat.com/docs/us-15/materials/us-15-Colley-Hacking-Hardware-With-Software.pdf)
-
-**Full script, run log & report**: [`26_anti_debugging_detection_neutralization/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/26_anti_debugging_detection_neutralization)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #AntiDebug #CoreDebug #HardwareSecurity #ReverseEngineering #FirmwareSecurity

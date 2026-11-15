@@ -1,6 +1,6 @@
 # ⚡️ 🔌 Bare-Metal Microcontroller Debugging with OpenOCDTarget (Python practice)
 
-OpenOCD (Open On-Chip Debugger) is the premier open-source tool for hardware-level debugging over JTAG and Serial Wire Debug (SWD).
+OpenOCD (Open On-Chip Debugger) is the premier open-source tool for hardware-level debugging over JTAG and Serial Wire Debug (SWD). It connects to cost-effective debug adapters (ST-Link, CMSIS-DAP, J-Link, FTDI) and provides a GDB server interface directly to the physical microcontroller silicon.
 
 ## 🧠 Core Concept
 - **OpenOCD Process Management**: Programmatic lifecycle control: spawning, monitoring, and shutting down OpenOCD daemon processes.
@@ -61,6 +61,7 @@ if __name__ == "__main__":
 - Automated factory flash programming and cryptographic key provisioning over SWD.
 - Hardware-in-the-loop security fuzzing of live automotive CAN nodes.
 - Extracting non-readout-protected (RDP Level 0) firmware images from unknown IoT chips.
+- Diagnosing microcontroller hardware latchups and brownout reset conditions.
 
 ## ⚠️ Caveats & Responsible Practice
 - Ensure the SWD/JTAG adapter clock speed (adapter_khz) is not set faster than 1/6th of CPU clock frequency.
@@ -73,9 +74,9 @@ if __name__ == "__main__":
 - **Target IDCODE**: `0x10016414` (Medium-density value line)
 
 ## 🔗 Resources
-- OpenOCD User's Guide (https://openocd.org/doc/html/index.html)
-- Avatar2 OpenOCDTarget Implementation (https://github.com/avatartwo/avatar2/blob/master/avatar2/targets/openocd_target.py)
-
-**Full script, run log & report**: [`16_openocd_swd_jtag_hardware_debugging/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/16_openocd_swd_jtag_hardware_debugging)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #OpenOCD #SWD #JTAG #HardwareHacking #FirmwareSecurity #STM32

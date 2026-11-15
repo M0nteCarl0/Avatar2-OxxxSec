@@ -74,9 +74,9 @@ if __name__ == "__main__":
 - **Assembler**: Keystone Assembler (ARM Thumb Mode)
 
 ## 🔗 Resources
-- Keystone Assembler Documentation (https://www.keystone-engine.org/docs/)
-- ARMv7-M Architecture Reference Manual (https://developer.arm.com/documentation/ddi0403/latest)
-
-**Full script, run log & report**: [`23_dynamic_code_patching_hijacking/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/23_dynamic_code_patching_hijacking)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #BinaryPatching #HotPatching #Keystone #Thumb2 #ReverseEngineering #FirmwareSecurity

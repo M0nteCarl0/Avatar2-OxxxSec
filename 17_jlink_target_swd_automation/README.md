@@ -75,9 +75,9 @@ if __name__ == "__main__":
 - **Flash Size**: 1024 KB | **RAM Size**: 256 KB
 
 ## 🔗 Resources
-- SEGGER J-Link Software and Documentation (https://www.segger.com/products/debug-probes/j-link/)
-- pylink-square Python Library (https://github.com/Square/pylink)
-
-**Full script, run log & report**: [`17_jlink_target_swd_automation/example.py`](https://github.com/M0nteCarl0/Avatar2-OxxxSec/tree/main/17_jlink_target_swd_automation)
+- Avatar2 Official Repository (https://github.com/avatartwo/avatar2)
+- Avatar2 Documentation (https://avatar2.readthedocs.io/en/latest/)
+- Avatar2 Research Paper - EURECOM (https://s3.eurecom.fr/docs/bar18_avatar2.pdf)
+- Full repository: Avatar2-OxxxSec - 30-chapter Avatar2 firmware orchestration and dynamic-analysis playbook — this chapter's sources, run log, report and execution screenshot.
 
 #Avatar2 #JLink #SEGGER #HardwareHacking #SWD #nRF52 #FirmwareSecurity
