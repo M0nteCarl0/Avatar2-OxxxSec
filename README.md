@@ -171,24 +171,18 @@ installed the runner simply skips the PNG step and keeps the SVG screenshots.
 
 ## 📱 Telegram Series Publication
 
-Every chapter `README.md` **is** its Telegram post: it is rendered to stay below the
-4096 UTF-16 code units a single Telegram message allows (~5% headroom, re-checked by
-`verify_all.py`), so any chapter can be copied into the channel as exactly one message.
-The full runnable script for each post lives next to its README in `example.py`.
+The complete 30-post series formatted specifically for posting directly to Telegram is compiled in:
+- **[avatar2_telegram_posts_series.md](avatar2_telegram_posts_series.md)**
 
-Each chapter README contains:
+Each post contains:
 - Catchy technical title and architectural hook
-- Condensed core concept bullets explaining the hardware and framework mechanics
-- The key Avatar2/engine calls extracted from the chapter script
+- Core concept bullet points explaining the underlying hardware and framework mechanics
+- Complete, standalone, runnable Python implementation example
 - 5 real-world security engineering use cases
 - Critical caveats, timing rules, and responsible practice tips
 - Target specs and sample binary layouts
 - Curated community documentation and research links
 - Relevant Telegram discoverability hashtags
-
-The long-form variants (full source embedded, better suited for a blog or a GitHub wiki page)
-stay compiled in:
-- **[avatar2_telegram_posts_series.md](avatar2_telegram_posts_series.md)**
 
 ---
 
