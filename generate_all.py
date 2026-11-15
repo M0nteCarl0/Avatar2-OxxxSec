@@ -5,11 +5,14 @@ individual README.md files, master avatar2_telegram_posts_series.md,
 and the comprehensive root README.md.
 """
 
+import ast
 import os
+import re
 import sys
 
 from generate_posts_data import POSTS_1_TO_15
 from generate_posts_data_2 import POSTS_16_TO_30
+from generate_posts_compact import POST_CODE
 
 ALL_POSTS = POSTS_1_TO_15 + POSTS_16_TO_30
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -72,6 +75,107 @@ def format_post_markdown(post: dict, is_standalone: bool = True) -> str:
     md.append(" ".join(post["hashtags"]))
     md.append("")
     return "\n".join(md)
+
+
+# ------------------------------------------------------------------------------
+# Telegram-ready chapter posts (OxxxSecQuling house style)
+#
+# One Telegram text message is limited to 4096 UTF-16 code units (every emoji
+# costs two), so posts 05..30 are published as a compact version of the same
+# structure: title, intro, Core Concept, Implementation Example (the shortened
+# script from generate_posts_compact.py), Use Cases, Caveats, Test Data,
+# Resources and hashtags. The full reference implementation stays in example.py.
+# ------------------------------------------------------------------------------
+
+TELEGRAM_MESSAGE_LIMIT = 4096   # hard limit of a single Telegram text message
+TELEGRAM_SAFE_UNITS = 3900      # ~5% headroom for client-side counters
+
+
+def telegram_units(text: str) -> int:
+    """Telegram measures message length in UTF-16 code units (emoji count twice)."""
+    return len(text.encode("utf-16-le")) // 2
+
+
+def _flat(text: str) -> str:
+    return " ".join(str(text).split())
+
+
+def _clip(text: str, limit: int) -> str:
+    """Collapse whitespace and cut on a word boundary, keeping a visible ellipsis."""
+    text = _flat(text)
+    if len(text) <= limit:
+        return text
+    return text[:limit].rsplit(" ", 1)[0].rstrip(" ,;:.-") + "…"
+
+
+def _lead_sentences(text: str, limit: int) -> str:
+    """First whole sentences of an intro, capped at `limit` characters."""
+    text = _flat(text)
+    if len(text) <= limit:
+        return text
+    kept = ""
+    for sentence in re.split(r"(?<=[.!?]) ", text):
+        candidate = (kept + " " + sentence).strip()
+        if kept and len(candidate) > limit:
+            break
+        kept = candidate
+    return kept if kept else _clip(text, limit)
+
+
+# Progressively leaner budgets: the first profile that fits the message wins.
+# Whole bullets/sections are dropped instead of truncating sentences, so every
+# published post still reads like prose.
+_POST_PROFILES = (
+    dict(concepts=5, use_cases=5, caveats=4, resources=3, intro=430, item=150),
+    dict(concepts=5, use_cases=4, caveats=4, resources=3, intro=400, item=150),
+    dict(concepts=4, use_cases=4, caveats=3, resources=3, intro=360, item=150),
+    dict(concepts=4, use_cases=4, caveats=3, resources=2, intro=320, item=150),
+    dict(concepts=4, use_cases=3, caveats=3, resources=2, intro=290, item=150),
+    dict(concepts=3, use_cases=3, caveats=2, resources=2, intro=260, item=150),
+    dict(concepts=3, use_cases=3, caveats=2, resources=1, intro=230, item=150),
+    dict(concepts=3, use_cases=2, caveats=2, resources=1, intro=200, item=150),
+    dict(concepts=3, use_cases=2, caveats=2, resources=0, intro=180, item=150),
+)
+
+
+def _render_telegram_post(post: dict, profile: dict) -> str:
+    md = [f"# {post['emoji']} {post['title']} (Python practice)",
+          "",
+          _lead_sentences(post["intro"], profile["intro"]),
+          "",
+          "## 🧠 Core Concept"]
+    md.extend(f"- {_clip(item, profile['item'])}" for item in post["core_concepts"][:profile["concepts"]])
+    md.extend(["", "## 💻 Implementation Example", "```python",
+               POST_CODE.get(post["num"], "").strip(), "```", "",
+               "## 🔥 Use Cases"])
+    md.extend(f"- {_clip(item, profile['item'])}" for item in post["use_cases"][:profile["use_cases"]])
+    md.extend(["", "## ⚠️ Caveats & Responsible Practice"])
+    md.extend(f"- {_clip(item, profile['item'] + 15)}" for item in post["caveats"][:profile["caveats"]])
+    md.extend(["", "## 📦 Test Data & Sample Binaries"])
+    md.extend(_clip(line, profile["item"] + 15)
+              for line in post["test_data"].splitlines() if line.strip())
+    if profile["resources"]:
+        md.extend(["", "## 🔗 Resources"])
+        md.extend(f"- {resource}" for resource in post["resources"][:profile["resources"]])
+    md.extend(["", f"**Full script, run log & report**: [`{post['dir_name']}/example.py`]"
+                   f"({REPO_URL}/tree/main/{post['dir_name']})",
+               "", " ".join(post["hashtags"]), ""])
+    return "\n".join(md)
+    md.extend(["", f"**Full script, run log & report**: [`{post['dir_name']}/example.py`]"
+                   f"({REPO_URL}/tree/main/{post['dir_name']})",
+               "", " ".join(post["hashtags"]), ""])
+    return "\n".join(md)
+
+
+def format_telegram_readme(post: dict) -> str:
+    """Chapter README that always fits into a single Telegram text message."""
+    text = ""
+    for profile in _POST_PROFILES:
+        text = _render_telegram_post(post, profile)
+        if telegram_units(text) <= TELEGRAM_SAFE_UNITS:
+            return text
+    return text
+
 
 def build_root_readme(posts: list) -> str:
     lines = [
@@ -227,7 +331,15 @@ def build_root_readme(posts: list) -> str:
         "",
         "## 📱 Telegram Series Publication",
         "",
-        "The complete 30-post series formatted specifically for posting directly to Telegram is compiled in:",
+        "Chapters **05–30** ship a `README.md` that **is** the Telegram post: it keeps the house structure",
+        "(`# <emoji> <title> (Python practice)` → intro → Core Concept → Implementation Example → Use Cases",
+        "→ Caveats & Responsible Practice → Test Data → Resources → hashtags) and stays below the",
+        "4096 UTF-16 code units of a single Telegram message, with the shortened implementation example",
+        "inlined. The full, hand-tested reference script for every chapter stays in `example.py`.",
+        "`verify_all.py` re-checks the message budget of every README.",
+        "",
+        "The long-form variants (full source embedded, better suited for a blog or a wiki page) of all",
+        "30 chapters stay compiled in:",
         "- **[avatar2_telegram_posts_series.md](avatar2_telegram_posts_series.md)**",
         "",
         "Each post contains:",
@@ -348,10 +460,20 @@ def main():
         with open(example_path, "w", encoding="utf-8") as f:
             f.write(post["code"].strip() + "\n")
             
-        # Write individual README.md
+        # Write individual README.md: post 01..04 keep the long form, 05..30 are
+        # published as a Telegram-sized post (see format_telegram_readme).
         readme_path = os.path.join(folder_path, "README.md")
+        if post["num"] in POST_CODE:
+            readme_text = format_telegram_readme(post)
+            readme_units = telegram_units(readme_text)
+            if readme_units > TELEGRAM_MESSAGE_LIMIT:
+                raise SystemExit(f"Post {post['num']:02d}: README is {readme_units} UTF-16 units, "
+                                 f"above the {TELEGRAM_MESSAGE_LIMIT}-unit Telegram limit")
+        else:
+            readme_text = format_post_markdown(post, is_standalone=True)
+            readme_units = telegram_units(readme_text)
         with open(readme_path, "w", encoding="utf-8") as f:
-            f.write(format_post_markdown(post, is_standalone=True))
+            f.write(readme_text)
 
         # Write quick launchers (Bash + PowerShell)
         sh_path = os.path.join(folder_path, "run.sh")

@@ -171,7 +171,15 @@ installed the runner simply skips the PNG step and keeps the SVG screenshots.
 
 ## 📱 Telegram Series Publication
 
-The complete 30-post series formatted specifically for posting directly to Telegram is compiled in:
+Chapters **05–30** ship a `README.md` that **is** the Telegram post: it keeps the house structure
+(`# <emoji> <title> (Python practice)` → intro → Core Concept → Implementation Example → Use Cases
+→ Caveats & Responsible Practice → Test Data → Resources → hashtags) and stays below the
+4096 UTF-16 code units of a single Telegram message, with the shortened implementation example
+inlined. The full, hand-tested reference script for every chapter stays in `example.py`.
+`verify_all.py` re-checks the message budget of every README.
+
+The long-form variants (full source embedded, better suited for a blog or a wiki page) of all
+30 chapters stay compiled in:
 - **[avatar2_telegram_posts_series.md](avatar2_telegram_posts_series.md)**
 
 Each post contains:
