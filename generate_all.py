@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
 Master Builder: Generates all 30 chapter folders, example.py scripts,
-individual README.md files, master avatar2_telegram_posts_series.md,
-and the comprehensive root README.md.
+Telegram-sized individual README.md files (one message per chapter),
+master avatar2_telegram_posts_series.md, and the comprehensive root README.md.
 """
 
+import ast
 import os
+import re
 import sys
 
 from generate_posts_data import POSTS_1_TO_15
@@ -72,6 +74,192 @@ def format_post_markdown(post: dict, is_standalone: bool = True) -> str:
     md.append(" ".join(post["hashtags"]))
     md.append("")
     return "\n".join(md)
+
+
+# ------------------------------------------------------------------------------
+# Telegram-ready chapter READMEs
+#
+# One Telegram text message is limited to 4096 UTF-16 code units (every emoji
+# costs two), so the chapter README is rendered as a compact post that always
+# stays below TELEGRAM_SAFE_UNITS: the full runnable script lives next to it in
+# example.py, the long-form variant stays in the master series file.
+# ------------------------------------------------------------------------------
+
+TELEGRAM_MESSAGE_LIMIT = 4096   # hard limit of a single Telegram text message
+TELEGRAM_SAFE_UNITS = 3900      # ~5% headroom for client-side length counters
+
+
+def telegram_units(text: str) -> int:
+    """Telegram measures message length in UTF-16 code units (emoji count twice)."""
+    return len(text.encode("utf-16-le")) // 2
+
+
+def _flat(text: str) -> str:
+    return " ".join(str(text).split())
+
+
+def _clip(text: str, limit: int) -> str:
+    """Collapse whitespace and cut on a word boundary, keeping a visible ellipsis."""
+    text = _flat(text)
+    if len(text) <= limit:
+        return text
+    cut = text[:limit].rsplit(" ", 1)[0]
+    return cut.rstrip(" ,;:.-") + "…"
+
+
+def _lead_sentences(text: str, limit: int) -> str:
+    """First whole sentences of an intro, capped at `limit` characters."""
+    text = _flat(text)
+    if len(text) <= limit:
+        return text
+    kept = ""
+    for sentence in re.split(r"(?<=[.!?]) ", text):
+        candidate = (kept + " " + sentence).strip()
+        if kept and len(candidate) > limit:
+            break
+        kept = candidate
+    return kept if kept else _clip(text, limit)
+
+
+_SNIPPET_PLUMBING = re.compile(
+    r"(tempfile\.|shutil\.(which|rmtree|copy|move)|os\.(remove|path\.|listdir|makedirs)"
+    r"|json\.load|print\(|^[fh]\.(write|read|flush)\(|^return$|^pass$)"
+)
+
+
+def _entry_function(tree: ast.Module):
+    """The demo function invoked from `if __name__ == "__main__":`."""
+    for node in tree.body:
+        if not isinstance(node, ast.If):
+            continue
+        for sub in ast.walk(node):
+            if isinstance(sub, ast.Call) and isinstance(sub.func, ast.Name):
+                for candidate in tree.body:
+                    if isinstance(candidate, ast.FunctionDef) and candidate.name == sub.func.id:
+                        return candidate
+    functions = [n for n in tree.body if isinstance(n, ast.FunctionDef) and not n.name.startswith("_")]
+    return functions[-1] if functions else None
+
+
+def _condense_statement(node: ast.stmt, lines: list) -> str:
+    """One source statement squeezed into a single comment-free line."""
+    chunk = "\n".join(lines[node.lineno - 1:node.end_lineno])
+    parts = [ln.split("#", 1)[0].strip()
+             for ln in chunk.splitlines() if not ln.lstrip().startswith("#")]
+    return " ".join(" ".join(part for part in parts if part).split())
+
+
+def code_snippet(code: str, max_lines: int) -> list:
+    """Condensed API footprint of the chapter script: calls and call-assignments only."""
+    if max_lines <= 0:
+        return []
+    try:
+        tree = ast.parse(code)
+    except SyntaxError:
+        return []
+    lines = code.splitlines()
+    entry = _entry_function(tree)
+    if entry is None:
+        return []
+
+    picked = []
+
+    def visit(body):
+        for stmt in body:
+            if isinstance(stmt, ast.Expr) and isinstance(stmt.value, ast.Call):
+                text = _condense_statement(stmt, lines)
+            elif isinstance(stmt, (ast.Assign, ast.AugAssign, ast.AnnAssign)):
+                text = _condense_statement(stmt, lines)
+                if "(" not in text:      # plain constant such as FLASH_BASE = 0x08000000
+                    continue
+            else:                        # descend into with/for/try/if bodies
+                for field in ("body", "orelse", "finalbody"):
+                    inner = getattr(stmt, field, None)
+                    if isinstance(inner, list) and inner and isinstance(inner[0], ast.stmt):
+                        visit(inner)
+                continue
+            if "(" not in text or len(text) > 96 or _SNIPPET_PLUMBING.search(text):
+                continue
+            try:                          # a stray '#' inside a string must not break the line
+                ast.parse(text)
+            except SyntaxError:
+                continue
+            if text not in picked:
+                picked.append(text)
+
+    visit(entry.body)
+    if len(picked) < max_lines:      # thin demo body: widen to the chapter's other helpers
+        for node in tree.body:
+            if isinstance(node, ast.FunctionDef) and node is not entry:
+                visit(node.body)
+                if len(picked) >= max_lines:
+                    break
+    return picked[:max_lines]
+
+
+# Progressively smaller budgets: the first profile that fits the message wins.
+_POST_PROFILES = (
+    dict(concepts=5, use_cases=5, caveats=4, resources=3, intro=470, item=150, snippet=10),
+    dict(concepts=4, use_cases=4, caveats=3, resources=3, intro=400, item=135, snippet=9),
+    dict(concepts=4, use_cases=3, caveats=3, resources=2, intro=340, item=120, snippet=8),
+    dict(concepts=3, use_cases=3, caveats=2, resources=2, intro=280, item=110, snippet=6),
+    dict(concepts=3, use_cases=2, caveats=2, resources=2, intro=220, item=100, snippet=0),
+    dict(concepts=2, use_cases=2, caveats=1, resources=1, intro=180, item=90, snippet=0),
+)
+
+
+def _render_telegram_post(post: dict, profile: dict) -> str:
+    md = [f"# {post['emoji']} {post['title']} with Avatar2 Framework (Python practice)",
+          f"_Post {post['num']:02d}/30 · Avatar2 firmware orchestration playbook_",
+          "",
+          _lead_sentences(post["intro"], profile["intro"]),
+          ""]
+
+    md.append("## 🧠 Core Concept")
+    md.extend(f"- {_clip(item, profile['item'])}" for item in post["core_concepts"][:profile["concepts"]])
+    md.append("")
+
+    snippet = code_snippet(post["code"], profile.get("snippet", 0))
+    if snippet:
+        md.append("## 💻 Key Calls")
+        md.append("```python")
+        md.extend(snippet)
+        md.append("```")
+        md.append("")
+
+    md.append("## 🔥 Use Cases")
+    md.extend(f"- {_clip(item, profile['item'])}" for item in post["use_cases"][:profile["use_cases"]])
+    md.append("")
+
+    md.append("## ⚠️ Caveats")
+    md.extend(f"- {_clip(item, profile['item'] + 20)}" for item in post["caveats"][:profile["caveats"]])
+    md.append("")
+
+    md.append("## 📦 Target")
+    md.extend(_clip(line, profile["item"] + 20)
+               for line in post["test_data"].splitlines() if line.strip())
+    md.append("")
+
+    md.append("## 🔗 Resources")
+    md.extend(f"- {resource}" for resource in post["resources"][:profile["resources"]])
+    md.append("")
+    md.append(f"**Runnable source, run log & report**: [`{post['dir_name']}`]"
+              f"({REPO_URL}/tree/main/{post['dir_name']})")
+    md.append("")
+    md.append(" ".join(post["hashtags"]))
+    md.append("")
+    return "\n".join(md)
+
+
+def format_telegram_readme(post: dict) -> str:
+    """Chapter README that always fits into a single Telegram text message."""
+    text = ""
+    for profile in _POST_PROFILES:
+        text = _render_telegram_post(post, profile)
+        if telegram_units(text) <= TELEGRAM_SAFE_UNITS:
+            return text
+    return text
+
 
 def build_root_readme(posts: list) -> str:
     lines = [
@@ -227,18 +415,24 @@ def build_root_readme(posts: list) -> str:
         "",
         "## 📱 Telegram Series Publication",
         "",
-        "The complete 30-post series formatted specifically for posting directly to Telegram is compiled in:",
-        "- **[avatar2_telegram_posts_series.md](avatar2_telegram_posts_series.md)**",
+        "Every chapter `README.md` **is** its Telegram post: it is rendered to stay below the",
+        "4096 UTF-16 code units a single Telegram message allows (~5% headroom, re-checked by",
+        "`verify_all.py`), so any chapter can be copied into the channel as exactly one message.",
+        "The full runnable script for each post lives next to its README in `example.py`.",
         "",
-        "Each post contains:",
+        "Each chapter README contains:",
         "- Catchy technical title and architectural hook",
-        "- Core concept bullet points explaining the underlying hardware and framework mechanics",
-        "- Complete, standalone, runnable Python implementation example",
+        "- Condensed core concept bullets explaining the hardware and framework mechanics",
+        "- The key Avatar2/engine calls extracted from the chapter script",
         "- 5 real-world security engineering use cases",
         "- Critical caveats, timing rules, and responsible practice tips",
         "- Target specs and sample binary layouts",
         "- Curated community documentation and research links",
         "- Relevant Telegram discoverability hashtags",
+        "",
+        "The long-form variants (full source embedded, better suited for a blog or a GitHub wiki page)",
+        "stay compiled in:",
+        "- **[avatar2_telegram_posts_series.md](avatar2_telegram_posts_series.md)**",
         "",
         "---",
         "",
@@ -348,10 +542,15 @@ def main():
         with open(example_path, "w", encoding="utf-8") as f:
             f.write(post["code"].strip() + "\n")
             
-        # Write individual README.md
+        # Write individual README.md (Telegram-ready, one message per chapter)
         readme_path = os.path.join(folder_path, "README.md")
+        readme_text = format_telegram_readme(post)
+        readme_units = telegram_units(readme_text)
+        if readme_units > TELEGRAM_MESSAGE_LIMIT:
+            raise SystemExit(f"Post {post['num']:02d}: README is {readme_units} UTF-16 units, "
+                             f"above the {TELEGRAM_MESSAGE_LIMIT}-unit Telegram limit")
         with open(readme_path, "w", encoding="utf-8") as f:
-            f.write(format_post_markdown(post, is_standalone=True))
+            f.write(readme_text)
 
         # Write quick launchers (Bash + PowerShell)
         sh_path = os.path.join(folder_path, "run.sh")
@@ -362,7 +561,7 @@ def main():
             f.write(build_run_ps1(post))
 
         print(f"  [+] Post {post['num']:02d}: Created {folder_name} "
-              f"(example.py, README.md, run.sh, run.ps1)")
+              f"(example.py, README.md [{readme_units}/{TELEGRAM_MESSAGE_LIMIT} units], run.sh, run.ps1)")
         
     # Generate master telegram series markdown
     print("[*] Generating master avatar2_telegram_posts_series.md...")

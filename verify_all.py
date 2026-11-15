@@ -9,6 +9,15 @@ import os
 import subprocess
 import sys
 
+# A single Telegram text message is capped at 4096 UTF-16 code units
+# (every emoji counts twice), and every chapter README doubles as one post.
+TELEGRAM_MESSAGE_LIMIT = 4096
+
+
+def telegram_units(text: str) -> int:
+    """Telegram measures message length in UTF-16 code units (emoji count twice)."""
+    return len(text.encode("utf-16-le")) // 2
+
 
 def _unicode_ok() -> bool:
     encoding = (getattr(sys.stdout, "encoding", "") or "").lower()
@@ -80,6 +89,8 @@ def verify_all_30_posts() -> bool:
     total_posts = 30
     rows = []
     passed_count = 0
+    readme_units = {}
+    longest_units = (0, "-")
 
     for number in range(1, total_posts + 1):
         prefix = f"{number:02d}_"
@@ -94,7 +105,12 @@ def verify_all_30_posts() -> bool:
         folder = matching[0]
         script_path = os.path.join(base_dir, folder, "example.py")
         readme_path = os.path.join(base_dir, folder, "README.md")
-        readme_state = "yes" if os.path.exists(readme_path) else "MISSING"
+        if os.path.exists(readme_path):
+            with open(readme_path, encoding="utf-8") as handle:
+                readme_units[number] = telegram_units(handle.read())
+            readme_state = f"{readme_units[number]}"
+        else:
+            readme_state = "MISSING"
 
         if not os.path.exists(script_path):
             rows.append((number, folder, readme_state, "MISSING", "-", "FAIL"))
@@ -105,18 +121,23 @@ def verify_all_30_posts() -> bool:
             capture_output=True, text=True,
         )
         compile_state = "OK" if result.returncode == 0 else "SYNTAX ERROR"
-        status = "PASS" if (result.returncode == 0 and readme_state == "yes") else "FAIL"
+        readme_fits = readme_state != "MISSING" and readme_units[number] <= TELEGRAM_MESSAGE_LIMIT
+        status = "PASS" if (result.returncode == 0 and readme_fits) else "FAIL"
         if status == "PASS":
             passed_count += 1
+            if readme_units[number] > longest_units[0]:
+                longest_units = (readme_units[number], folder)
         rows.append((number, folder, readme_state, "yes", compile_state, status))
 
     print()
     print(f"[*] Verifying {total_posts} post scripts in: {base_dir}")
     print(render_table(
-        ["#", "Post directory", "README.md", "example.py", "py_compile", "Status"],
+        ["#", "Post directory", "README, uc", "example.py", "py_compile", "Status"],
         rows,
-        aligns=[">", "<", "<", "<", "<", "<"],
+        aligns=[">", "<", ">", "<", "<", "<"],
     ))
+    print(f"[*] README budget: {TELEGRAM_MESSAGE_LIMIT} UTF-16 units per post "
+          f"(one Telegram message); longest: {longest_units[0]} ({longest_units[1]})")
     print(f"[*] Summary: {passed_count}/{total_posts} posts verified successfully.")
     return passed_count == total_posts
 
